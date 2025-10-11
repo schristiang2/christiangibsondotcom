@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Space Mono', monospace;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 200ms ease-out forwards;
+  opacity: 0;
+}
+
+#wavelines-section polyline {
+  --_height: 50;
+  --_count: 6;
+  --_y: calc(var(--_height) * var(--i) / var(--_count));
+  --_offset: calc(var(--_height) / var(--_count) * 0.5);
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  translate: 0 calc((var(--_y) - var(--_offset)) * 1px);
+}
+
+#wavelines-section .star polyline {
+  --_height: 100;
+  stroke-dasharray: 45 100;
+  translate: 0 calc(var(--_height) * 0.5px);
+  rotate: calc(var(--i) * 30deg);
+}
