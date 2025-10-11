@@ -136,7 +136,7 @@ export function Home() {
         <div className="text-center">
           <h1
             className={`font-mono tracking-[0.02em] m-0 transition-colors duration-300 ${
-              isDark ? 'text-black' : 'text-white'
+              isDark ? 'text-white' : 'text-black'
             }`}
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 700 }}
           >
@@ -144,7 +144,7 @@ export function Home() {
           </h1>
           <p
             className={`font-mono text-[0.9rem] md:text-[1rem] tracking-[0.05em] leading-[1.4] mt-2.5 font-bold transition-colors duration-300 ${
-              isDark ? 'text-black/70' : 'text-white/70'
+              isDark ? 'text-white/70' : 'text-black/70'
             }`}
           >
             design + development
