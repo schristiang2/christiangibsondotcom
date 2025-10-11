@@ -17,7 +17,7 @@ export function Home() {
           </p>
         </div>
 
-        <div className="flex justify-between items-center pt-4">
+        <div className="flex gap-6 pt-4">
           <button className="text-white hover:opacity-70 transition-opacity">
             Resume
           </button>
