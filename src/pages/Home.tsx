@@ -43,16 +43,16 @@ export function Home() {
     const layer = document.getElementById("spawn-layer");
     if (!layer) return;
 
-    const isTouch = matchMedia("(pointer: coarse)").matches;
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (isTouch || reduce) return;
+    if (reduce) return;
 
-    const maxNodes = 80;
+    const isTouch = matchMedia("(pointer: coarse)").matches;
+    const maxNodes = isTouch ? 40 : 80;
     const spawned: HTMLImageElement[] = [];
     let lastTime = 0;
-    const minInterval = 120;
+    const minInterval = isTouch ? 80 : 120;
 
-    const handlePointerMove = (e: PointerEvent) => {
+    const spawnImage = (clientX: number, clientY: number) => {
       const now = performance.now();
       if (now - lastTime < minInterval) return;
       lastTime = now;
@@ -67,8 +67,8 @@ export function Home() {
         width: `${size}px`,
         height: "auto",
         position: "absolute",
-        left: `${e.clientX}px`,
-        top: `${e.clientY}px`,
+        left: `${clientX}px`,
+        top: `${clientY}px`,
         transform: "translate(-50%,-50%) scale(0.92) rotate(0deg)",
         opacity: "0",
         filter: "brightness(0.95)",
@@ -107,10 +107,26 @@ export function Home() {
       });
     };
 
-    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    const handlePointerMove = (e: PointerEvent) => {
+      spawnImage(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        spawnImage(touch.clientX, touch.clientY);
+      }
+    };
+
+    if (isTouch) {
+      window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    } else {
+      window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    }
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
