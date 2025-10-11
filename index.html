@@ -80,7 +80,10 @@
         if (sessionStorage.getItem(TOKEN_KEY) === "ok") {
           gate.style.display = "none";
           app.hidden = false;
-          return;
+        } else {
+          gate.style.display = "grid";
+          app.hidden = true;
+          setTimeout(()=>input?.focus(), 50);
         }
 
         form.addEventListener("submit", async (e)=>{
@@ -103,8 +106,6 @@
             console.error("hash error", ex);
           }
         });
-
-        setTimeout(()=>input?.focus(), 50);
       }
 
       document.addEventListener("DOMContentLoaded", gateInit);
