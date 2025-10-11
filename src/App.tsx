@@ -37,7 +37,7 @@ function AppContent() {
               : 'bg-[#f5f5f5] text-black border border-black/15'
           }`}
         >
-          ⚠️Staging Site — For testing purposes only.🧪
+          ⚠️ Staging Site — For testing purposes only 🧪
         </div>
         <button
           id="logout"
