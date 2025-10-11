@@ -29,6 +29,21 @@ function AppContent() {
       <InfoButton />
       <ThemeToggle />
 
+      <button
+        id="logout"
+        onClick={() => {
+          sessionStorage.removeItem("preview_authed_v1");
+          window.location.reload();
+        }}
+        className={`fixed right-4 md:right-12 bottom-4 md:bottom-12 z-[2] focus:outline-none focus:ring-2 focus:ring-opacity-50 rounded transition-all duration-200 px-3 py-2 text-xs font-mono uppercase tracking-wider ${
+          isDark
+            ? 'bg-[#171717] text-white border border-white/15 hover:bg-[#1f1f1f] focus:ring-white'
+            : 'bg-[#f5f5f5] text-black border border-black/15 hover:bg-[#e5e5e5] focus:ring-black'
+        }`}
+      >
+        logout
+      </button>
+
       <style>{`
         @keyframes modalFadeIn {
           from {

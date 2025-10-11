@@ -4,10 +4,112 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta property="og:title" content="(private preview)">
+    <meta property="og:description" content="private preview — authentication required">
+    <meta name="twitter:card" content="none">
     <title>Minimalist Homepage Design</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Password Gate (shown first) -->
+    <div id="gate" aria-live="polite">
+      <form id="gate-form" autocomplete="off">
+        <h1>private preview</h1>
+        <p>enter password to continue</p>
+        <input id="gate-input" type="password" placeholder="password" required>
+        <button type="submit">enter</button>
+        <p id="gate-error" role="alert" hidden>incorrect password. try again.</p>
+      </form>
+      <style>
+        #gate {
+          position: fixed; inset: 0; display: grid; place-items: center;
+          background: #000; color: #fff; z-index: 9999;
+          font-family: "Space Mono","IBM Plex Mono",monospace;
+        }
+        #gate-form { display:grid; gap:.75rem; width:min(92vw, 360px); }
+        #gate-form h1{ margin:0 0 .25rem; font-size:1rem; font-weight:500; letter-spacing:.04em; text-transform:uppercase; opacity:.9 }
+        #gate-form p { margin: 0; font-size: .875rem; opacity: .7; }
+        #gate-form input, #gate-form button{
+          padding:.75rem .9rem; border:1px solid rgba(255,255,255,.15); background:#0f0f0f; color:#fff;
+        }
+        #gate-form input:focus, #gate-form button:focus { outline:2px solid rgba(255,255,255,.35); outline-offset:2px }
+        #gate-form button{ cursor:pointer; background:#171717; }
+        #gate-error{ color:#ff6b6b; font-size:.85rem; margin-top:.25rem }
+      </style>
+    </div>
+
+    <!-- Your real site (hidden until auth passes) -->
+    <div id="app" hidden>
+      <div id="root"></div>
+    </div>
+
+    <!-- Password gate script -->
+    <script>
+      const PASSWORD_SHA256_HEX = "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8";
+      const TOKEN_KEY = "preview_authed_v1";
+
+      function hexToBuf(hex){
+        const bytes = new Uint8Array(hex.length/2);
+        for (let i=0; i<bytes.length; i++) bytes[i] = parseInt(hex.substr(i*2,2),16);
+        return bytes.buffer;
+      }
+      function bufToHex(buf){
+        return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
+      }
+      function safeEqualHex(aHex, bHex){
+        if (aHex.length !== bHex.length) return false;
+        let out = 0;
+        for (let i=0; i<aHex.length; i++) out |= aHex.charCodeAt(i) ^ bHex.charCodeAt(i);
+        return out === 0;
+      }
+
+      async function sha256Hex(str){
+        const enc = new TextEncoder().encode(str);
+        const digest = await crypto.subtle.digest("SHA-256", enc);
+        return bufToHex(digest);
+      }
+
+      async function gateInit(){
+        const gate = document.getElementById("gate");
+        const app  = document.getElementById("app");
+        const form = document.getElementById("gate-form");
+        const input= document.getElementById("gate-input");
+        const err  = document.getElementById("gate-error");
+
+        if (sessionStorage.getItem(TOKEN_KEY) === "ok") {
+          gate.style.display = "none";
+          app.hidden = false;
+          return;
+        }
+
+        form.addEventListener("submit", async (e)=>{
+          e.preventDefault();
+          err.hidden = true;
+          const pass = input.value || "";
+          try{
+            const hash = await sha256Hex(pass);
+            if (safeEqualHex(hash, PASSWORD_SHA256_HEX)) {
+              sessionStorage.setItem(TOKEN_KEY, "ok");
+              gate.style.display = "none";
+              app.hidden = false;
+              input.value = "";
+            } else {
+              err.hidden = false;
+              input.select();
+            }
+          } catch(ex){
+            err.hidden = false;
+            console.error("hash error", ex);
+          }
+        });
+
+        setTimeout(()=>input?.focus(), 50);
+      }
+
+      document.addEventListener("DOMContentLoaded", gateInit);
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
