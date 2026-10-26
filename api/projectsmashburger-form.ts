@@ -6,7 +6,34 @@
 //   PS_TO_EMAIL         — where submissions go (comma-separate for several)
 //   PS_FROM_EMAIL       — sender on a domain verified in Resend,
 //                          e.g. "Project Smashburger <forms@christiangibson.com>"
-import { hasPsAccess } from '../server/projectsmashburger-auth';
+
+// Password helpers are inlined (no local imports) so Vercel's Node ESM
+// runtime doesn't need to resolve extra modules.
+const PS_COOKIE = 'ps_access';
+
+async function psAccessToken(): Promise<string | null> {
+  const password = process.env.PROJECTSMASHBURGER_PASSWORD;
+  if (!password) return null;
+  const data = new TextEncoder().encode(`project-smashburger:${password}`);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+function readCookie(request: Request, name: string): string | undefined {
+  const header = request.headers.get('cookie') ?? '';
+  for (const part of header.split(';')) {
+    const [k, ...v] = part.trim().split('=');
+    if (k === name) return decodeURIComponent(v.join('='));
+  }
+  return undefined;
+}
+
+async function hasPsAccess(request: Request): Promise<boolean> {
+  const token = await psAccessToken();
+  return !!token && readCookie(request, PS_COOKIE) === token;
+}
 
 type Payload = Record<string, string | string[] | undefined>;
 

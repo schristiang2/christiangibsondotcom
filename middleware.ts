@@ -2,7 +2,34 @@
 // /projectsmashburger (pages, images, scripts) plus its form API.
 // Runs on Vercel's edge before any static file is served.
 import { next } from '@vercel/functions';
-import { PS_COOKIE, hasPsAccess, psAccessToken } from './server/projectsmashburger-auth';
+
+// Password helpers are inlined (no local imports) so Vercel's Node ESM
+// runtime doesn't need to resolve extra modules.
+const PS_COOKIE = 'ps_access';
+
+async function psAccessToken(): Promise<string | null> {
+  const password = process.env.PROJECTSMASHBURGER_PASSWORD;
+  if (!password) return null;
+  const data = new TextEncoder().encode(`project-smashburger:${password}`);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+function readCookie(request: Request, name: string): string | undefined {
+  const header = request.headers.get('cookie') ?? '';
+  for (const part of header.split(';')) {
+    const [k, ...v] = part.trim().split('=');
+    if (k === name) return decodeURIComponent(v.join('='));
+  }
+  return undefined;
+}
+
+async function hasPsAccess(request: Request): Promise<boolean> {
+  const token = await psAccessToken();
+  return !!token && readCookie(request, PS_COOKIE) === token;
+}
 
 export const config = {
   matcher: ['/projectsmashburger', '/projectsmashburger/:path*', '/api/projectsmashburger-form'],
