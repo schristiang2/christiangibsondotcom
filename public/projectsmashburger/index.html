@@ -5,6 +5,7 @@
 <title>Project Smashburger</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/projectsmashburger/mobile.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,125,500;0,125,700;1,125,500;1,125,700&amp;display=swap" rel="stylesheet">
 <style>
@@ -13,67 +14,80 @@ a{color:#DCDCDC}a:hover{color:#23D822}
 input{font:inherit}
 .ps-collage{position:relative;height:1000px}
 .ps-collage .ps-abs{position:absolute}
-@media (max-width:900px){.ps-collage{height:auto;display:flex;flex-direction:column;gap:24px;padding:48px 0}.ps-collage .ps-abs{position:static !important;width:100% !important;height:auto !important;max-width:none !important;transform:none !important}}
+@media (min-width:768px) and (max-width:900px){.ps-collage{height:auto;display:flex;flex-direction:column;gap:24px;padding:48px 0}.ps-collage .ps-abs{position:static !important;width:100% !important;height:auto !important;max-width:none !important;transform:none !important}}
 </style>
 <script src="/projectsmashburger/site.js" defer></script>
 </head>
-<body>
+<body class="ps-page ps-dark">
 <div style="font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-stretch: 125%; font-weight: 500; text-transform: uppercase; color: #DCDCDC; background: #000; min-height: 100vh">
 
-<header style="position: absolute; top: 0; left: 0; right: 0; z-index: 10">
-<div style="padding: 32px 29px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
-<a href="/projectsmashburger" aria-label="Project Smashburger home" style="display: block; width: clamp(180px, 28vw, 399px)">
+<header class="ps-header" style="position: absolute; top: 0; left: 0; right: 0; z-index: 10">
+<div class="ps-header-inner" style="padding: 32px 29px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
+<a class="ps-logo" href="/projectsmashburger" aria-label="Project Smashburger home" style="display: block; width: clamp(180px, 28vw, 399px)">
 <img src="/projectsmashburger/images/logo.png" alt="Project Smashburger" style="display: block; width: 100%; height: auto">
 </a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px">
+<nav class="ps-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px">
 <a href="https://cash.app/$projectsmashburger" style="color: #DCDCDC; text-decoration: none; font-weight: 700; font-size: 19.72px; letter-spacing: 0.01em; padding: 10px 0">Order Online</a>
 <a href="#menu" style="color: #DCDCDC; text-decoration: none; font-weight: 700; font-size: 19.72px; letter-spacing: 0.01em; padding: 10px 0">Our Menu</a>
-<a href="/projectsmashburger/book" style="color: #000; background: #23D822; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; font-stretch: normal; text-transform: none; font-weight: 700; font-size: 17.2px; padding: 16px 28px">Book the Truck</a>
+<a href="/projectsmashburger/book" style="color: #000; background: #23D822; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; font-stretch: normal; text-transform: uppercase; font-weight: 700; font-size: 17.2px; padding: 16px 28px">Book the Truck</a>
 <a href="https://instagram.com/" aria-label="Instagram" style="color: #DCDCDC; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>
 </a>
 </nav>
+<button type="button" class="ps-burger" aria-label="Open menu" aria-expanded="false" aria-controls="ps-menu"><span></span><span></span></button>
 </div>
 </header>
+<div id="ps-menu" class="ps-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+<div class="ps-menu-top">
+<a href="/projectsmashburger" class="ps-menu-logo" aria-label="Project Smashburger home"><img src="/projectsmashburger/images/logo.png" alt="Project Smashburger"></a>
+<button type="button" class="ps-menu-close" aria-label="Close menu"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"></path></svg></button>
+</div>
+<nav class="ps-menu-links" aria-label="Mobile">
+<a href="https://cash.app/$projectsmashburger">Order Online</a>
+<a href="/projectsmashburger#menu">Our Menu</a>
+<a href="/projectsmashburger/book" class="ps-menu-book">Book the Truck</a>
+</nav>
+<a class="ps-menu-insta" href="https://instagram.com/" aria-label="Instagram"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg></a>
+</div>
 
-<section style="position: relative; min-height: 1142px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 260px 29px 48px; box-sizing: border-box">
+<section class="ps-hero" style="position: relative; min-height: 1142px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 260px 29px 48px; box-sizing: border-box">
 <img src="/projectsmashburger/images/hero-46.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
 <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(0,0,0,0.34)"></div>
 <div style="position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center">
-<h1 style="margin: 0; font-weight: 700; font-size: clamp(40px, 6.2vw, 89.1px); line-height: 1; letter-spacing: 0.01em; color: #DCDCDC; max-width: 1034px">Juicy.<br>Mouth-watering.<br>Perfection.</h1>
-<h4 style="margin: 28px 0 0; font-weight: 700; font-size: 19.72px; line-height: 1.18; letter-spacing: 0.01em; color: #DCDCDC; max-width: 686px">Not just another burger joint on wheels, an experience your tastebuds will thank you for...</h4>
-<div style="margin-top: 68px; width: 100%; max-width: 918px; background: #23D822; color: #000; padding: 48px 55px 44px; box-sizing: border-box; text-align: center">
+<h1 class="ps-hero-h1" style="margin: 0; font-weight: 700; font-size: clamp(40px, 6.2vw, 89.1px); line-height: 1; letter-spacing: 0.01em; color: #DCDCDC; max-width: 1034px">Juicy.<br>Mouth-watering.<br>Perfection.</h1>
+<h4 class="ps-hero-h4" style="margin: 28px 0 0; font-weight: 700; font-size: 19.72px; line-height: 1.18; letter-spacing: 0.01em; color: #DCDCDC; max-width: 686px">Not just another burger joint on wheels, an experience your tastebuds will thank you for...</h4>
+<div class="ps-club" style="margin-top: 68px; width: 100%; max-width: 918px; background: #23D822; color: #000; padding: 48px 55px 44px; box-sizing: border-box; text-align: center">
 <h2 style="margin: 0; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.2; letter-spacing: 0.01em; color: #000">Join the Club</h2>
 <p style="margin: 16px 0 0; font-size: 14.68px; line-height: 1.6; color: #000">Sign up to receive our schedule and special promotions.</p>
-<form aria-label="Newsletter signup" data-ps-form="newsletter" style="margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+<form class="ps-nl-form" aria-label="Newsletter signup" data-ps-form="newsletter" style="margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
 <label for="nl1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email Address</label>
 <input id="nl1" name="email" type="email" required placeholder="EMAIL ADDRESS" style="width: 241px; height: 54px; padding: 0 22px; box-sizing: border-box; border: 1px solid rgba(0,0,0,0.12); border-radius: 0; background: #fff; color: #000; font-size: 14.68px; font-stretch: 125%; text-transform: uppercase">
-<button type="submit" style="height: 54px; padding: 0 26px; border: 0; border-radius: 0; background: rgba(0,0,0,0.15); color: rgba(255,255,255,0.55); font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 17.2px; cursor: pointer">Join The Club</button>
+<button class="ps-club-btn" type="submit" style="height: 54px; padding: 0 26px; border: 0; border-radius: 0; background: rgba(0,0,0,0.15); color: rgba(255,255,255,0.55); font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 17.2px; cursor: pointer">Join The Club</button>
 </form>
 <p style="margin: 34px 0 0; font-size: 11.27px; color: #000">No spam, just good burgers.</p>
 </div>
 </div>
 </section>
 
-<section style="background: #000; padding: 129px 29px 80px">
+<section class="ps-mission" style="background: #000; padding: 129px 29px 80px">
 <div style="display: flex; flex-wrap: wrap; gap: 48px 69px; align-items: flex-start">
-<div style="flex: 1 1 520px; max-width: 628px; margin-left: clamp(0px, 4vw, 58px); min-width: 0">
-<h4 style="margin: 0; font-weight: 700; font-size: 19.72px; line-height: 1.18; letter-spacing: 0.01em">This isn’t just food – it’s an <em style="color: #23D822">Experience</em>.</h4>
-<h3 style="margin: 30px 0 0; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.12; letter-spacing: 0.01em">We believe in the power of a good burger – one that's <em style="color: #23D822">juicy, flavorful</em>, and <em style="color: #23D822">crafted with passion</em>.</h3>
-<p style="margin: 60px 0 0; font-size: clamp(18px, 1.72vw, 24.76px); line-height: 1.6">Our mission is simple: to serve the best burgers on the street. Over the years, we've mastered the art of the perfect smash, ensuring every burger is seared to perfection, locking in that juicy flavor that makes our burgers stand out.</p>
-<p style="margin: 14px 0 0; font-size: clamp(18px, 1.72vw, 24.76px); line-height: 1.6">But it's <strong style="color: #23D822">not <em>just about the burgers.</em></strong> It's about an <span style="color: #23D822">experience</span>.</p>
-<p style="margin: 14px 0 0; font-size: clamp(18px, 1.72vw, 24.76px); line-height: 1.6">From the moment you see our truck to the last bite, we want you to feel at home. Our team is dedicated to ensuring every customer leaves with a smile, a full stomach, and memories of a burger done right.</p>
-<a href="/projectsmashburger/about" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 56px; width: 279px; height: 70px; background: #23D822; color: #000; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; font-stretch: normal; text-transform: none; font-weight: 700; font-size: 17.2px">Meet Our Team</a>
+<div class="ps-mission-text" style="flex: 1 1 520px; max-width: 628px; margin-left: clamp(0px, 4vw, 58px); min-width: 0">
+<h4 class="ps-m-h4" style="margin: 0; font-weight: 700; font-size: 19.72px; line-height: 1.18; letter-spacing: 0.01em">This isn’t just food – it’s an <em style="color: #23D822">Experience</em>.</h4>
+<h3 class="ps-m-h3" style="margin: 30px 0 0; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.12; letter-spacing: 0.01em">We believe in the power of a good burger – one that's <em style="color: #23D822">juicy, flavorful</em>, and <em style="color: #23D822">crafted with passion</em>.</h3>
+<p class="ps-m-p ps-m-first" style="margin: 60px 0 0; font-size: clamp(18px, 1.72vw, 24.76px); line-height: 1.6">Our mission is simple: to serve the best burgers on the street. Over the years, we've mastered the art of the perfect smash, ensuring every burger is seared to perfection, locking in that juicy flavor that makes our burgers stand out.</p>
+<p class="ps-m-p" style="margin: 14px 0 0; font-size: clamp(18px, 1.72vw, 24.76px); line-height: 1.6">But it's <strong style="color: #23D822">not <em>just about the burgers.</em></strong> It's about an <span style="color: #23D822">experience</span>.</p>
+<p class="ps-m-p" style="margin: 14px 0 0; font-size: clamp(18px, 1.72vw, 24.76px); line-height: 1.6">From the moment you see our truck to the last bite, we want you to feel at home. Our team is dedicated to ensuring every customer leaves with a smile, a full stomach, and memories of a burger done right.</p>
+<a class="ps-meet" href="/projectsmashburger/about" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 56px; width: 279px; height: 70px; background: #23D822; color: #000; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; font-stretch: normal; text-transform: none; font-weight: 700; font-size: 17.2px">Meet Our Team</a>
 </div>
-<img src="/projectsmashburger/images/photo-41.jpg" alt="Owner holding a smashburger and fries" style="flex: 1 1 420px; max-width: 628px; width: 100%; aspect-ratio: 628 / 942; object-fit: cover; margin-top: 22px; margin-left: auto; min-width: 0">
+<img class="ps-mission-img" src="/projectsmashburger/images/photo-41.jpg" alt="Owner holding a smashburger and fries" style="flex: 1 1 420px; max-width: 628px; width: 100%; aspect-ratio: 628 / 942; object-fit: cover; margin-top: 22px; margin-left: auto; min-width: 0">
 </div>
 </section>
 
-<section id="menu" style="background: #000; padding: 105px 29px 140px">
+<section class="ps-menu-sec" id="menu" style="background: #000; padding: 105px 29px 140px">
 <div style="display: flex; flex-wrap: wrap; gap: 48px 11px; align-items: flex-start">
-<img src="/projectsmashburger/images/photo-48.jpg" alt="A smashburger held up in front of the truck" style="flex: 1 1 420px; max-width: 686px; width: 100%; aspect-ratio: 686 / 969; object-fit: cover; min-width: 0">
-<div style="flex: 1 1 420px; max-width: 686px; min-width: 0; margin: 0 auto; text-align: center; padding-top: 30px">
-<h2 style="margin: 0; font-weight: 700; font-size: clamp(36px, 3.94vw, 56.68px); line-height: 1.2; letter-spacing: 0.01em">Our Menu</h2>
+<img class="ps-menu-img" src="/projectsmashburger/images/photo-48.jpg" alt="A smashburger held up in front of the truck" style="flex: 1 1 420px; max-width: 686px; width: 100%; aspect-ratio: 686 / 969; object-fit: cover; min-width: 0">
+<div class="ps-menu-text" style="flex: 1 1 420px; max-width: 686px; min-width: 0; margin: 0 auto; text-align: center; padding-top: 30px">
+<h2 class="ps-menu-h2" style="margin: 0; font-weight: 700; font-size: clamp(36px, 3.94vw, 56.68px); line-height: 1.2; letter-spacing: 0.01em">Our Menu</h2>
 <div role="tablist" aria-label="Menu sections" style="margin-top: 18px; display: flex; justify-content: center; gap: 4px 18px">
 <button type="button" role="tab" data-tab="burgers" aria-selected="true" style="min-height:44px;padding:0 4px;background:none;border:0;cursor:pointer;color:#DCDCDC;font:inherit;font-stretch:125%;font-weight:500;font-size:14.68px;text-transform:uppercase;text-underline-offset:4px;text-decoration:underline">Burgers</button>
 <button type="button" role="tab" data-tab="sides" aria-selected="false" style="min-height:44px;padding:0 4px;background:none;border:0;cursor:pointer;color:#DCDCDC;font:inherit;font-stretch:125%;font-weight:500;font-size:14.68px;text-transform:uppercase;text-underline-offset:4px;text-decoration:none">Sides</button>
@@ -81,7 +95,7 @@ input{font:inherit}
 </div>
 
 <div role="tabpanel" data-panel="burgers">
-<div style="margin-top: 36px; padding: 0 40px">
+<div class="ps-panel" style="margin-top: 36px; padding: 0 40px">
 <h3 style="margin: 0 0 44px; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.2">Burgers</h3>
 <h4 style="margin: 0; font-weight: 700; font-size: 19.72px">The Original</h4>
 <p style="margin: 8px 0 0; font-size: 14.68px; line-height: 1.6">Two smashed patties, white American cheese, grilled onions, pickles and special sauce.</p>
@@ -94,7 +108,7 @@ input{font:inherit}
 </div>
 </div>
 <div role="tabpanel" data-panel="sides" hidden>
-<div style="margin-top: 36px; padding: 0 40px">
+<div class="ps-panel" style="margin-top: 36px; padding: 0 40px">
 <h3 style="margin: 0 0 44px; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.2">Fries</h3>
 <h4 style="margin: 0; font-weight: 700; font-size: 19.72px">Fries</h4>
 <p style="margin: 8px 0 0; font-size: 14.68px; line-height: 1.6">Crispy, golden, and made for fry lovers who want that irresistible crunch from start to finish.</p>
@@ -103,7 +117,7 @@ input{font:inherit}
 </div>
 </div>
 <div role="tabpanel" data-panel="kids" hidden>
-<div style="margin-top: 36px; padding: 0 40px">
+<div class="ps-panel" style="margin-top: 36px; padding: 0 40px">
 <h3 style="margin: 0 0 44px; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.2">Kids meals</h3>
 <h4 style="margin: 0; font-weight: 700; font-size: 19.72px">Grilled Cheese</h4>
 <p style="margin: 8px 0 0; font-size: 14.68px; line-height: 1.6">Grilled cheese on a Martin's potato bun, like grandma used to make it but better. Served with a small fry or tot and juice box.</p>
@@ -113,26 +127,27 @@ input{font:inherit}
 </div>
 </section>
 
-<section style="background: #000; padding: 60px 29px 80px">
-<p style="margin: 0; text-align: center; font-weight: 700; font-size: clamp(32px, 3.94vw, 56.68px); line-height: 1.2; letter-spacing: 0.01em">Follow us on social</p>
-<div style="margin-top: 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
+<section class="ps-social" style="background: #000; padding: 60px 29px 80px">
+<p class="ps-social-title" style="margin: 0; text-align: center; font-weight: 700; font-size: clamp(32px, 3.94vw, 56.68px); line-height: 1.2; letter-spacing: 0.01em">Follow us on social</p>
+<div class="ps-carousel" style="margin-top: 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
 <img src="/projectsmashburger/images/photo-37.jpg" alt="Serving a customer at the truck window" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block">
 <img src="/projectsmashburger/images/mockup.jpg" alt="Project Smashburger burger wrapper" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block">
 <img src="/projectsmashburger/images/hero-46.jpg" alt="Smashburger close-up" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block">
 <img src="/projectsmashburger/images/photo-42.jpg" alt="Burger and fries" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block">
 <img src="/projectsmashburger/images/photo-02.jpg" alt="The owners in front of the truck" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block">
 </div>
+<div class="ps-carousel-nav"><button type="button" class="ps-prev" aria-label="Previous photo"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button><button type="button" class="ps-next" aria-label="Next photo"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div>
 </section>
 
-<section style="background: #000; padding: 0 29px">
+<section class="ps-collage-sec" style="background: #000; padding: 0 29px">
 <div class="ps-collage">
-<img class="ps-abs" src="/projectsmashburger/images/photo-47.jpg" alt="Smashburger held up close" style="left: -29px; top: 22px; width: 366px; height: 478px; object-fit: cover">
-<img class="ps-abs" src="/projectsmashburger/images/photo-40.jpg" alt="Customers ordering at the truck" style="right: -29px; top: 104px; width: 366px; height: 478px; object-fit: cover">
-<img class="ps-abs" src="/projectsmashburger/images/photo-37.jpg" alt="Handing an order through the truck window" style="left: 232px; top: 593px; width: 570px; height: 396px; object-fit: cover">
-<div class="ps-abs" style="left: 50%; top: 212px; transform: translateX(-50%); width: 583px; max-width: 100%; text-align: center">
+<img class="ps-abs ps-c1" src="/projectsmashburger/images/photo-47.jpg" alt="Smashburger held up close" style="left: -29px; top: 22px; width: 366px; height: 478px; object-fit: cover">
+<img class="ps-abs ps-c2" src="/projectsmashburger/images/photo-40.jpg" alt="Customers ordering at the truck" style="right: -29px; top: 104px; width: 366px; height: 478px; object-fit: cover">
+<img class="ps-abs ps-c3" src="/projectsmashburger/images/photo-37.jpg" alt="Handing an order through the truck window" style="left: 232px; top: 593px; width: 570px; height: 396px; object-fit: cover">
+<div class="ps-abs ps-ctext" style="left: 50%; top: 212px; transform: translateX(-50%); width: 583px; max-width: 100%; text-align: center">
 <h2 style="margin: 0; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.2; letter-spacing: 0.01em">Join the Club</h2>
 <p style="margin: 16px 0 0; font-size: 14.68px; line-height: 1.6">Sign up to receive our schedule and special promotions.</p>
-<form aria-label="Newsletter signup" data-ps-form="newsletter" style="margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+<form class="ps-nl-form" aria-label="Newsletter signup" data-ps-form="newsletter" style="margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
 <label for="nl2" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email Address</label>
 <input id="nl2" name="email" type="email" required placeholder="EMAIL ADDRESS" style="width: 241px; height: 54px; padding: 0 22px; box-sizing: border-box; border: 1px solid rgba(0,0,0,0.12); border-radius: 0; background: #fff; color: #000; font-size: 14.68px; font-stretch: 125%; text-transform: uppercase">
 <button type="submit" style="height: 54px; padding: 0 30px; border: 0; border-radius: 0; background: #DCDCDC; color: #000; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 17.2px; cursor: pointer">Sign Up</button>
@@ -142,15 +157,15 @@ input{font:inherit}
 </div>
 </section>
 
-<footer style="background: #000; padding: 34px 29px 60px">
+<footer class="ps-footer" style="background: #000; padding: 34px 29px 60px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 32px">
 <div>
-<img src="/projectsmashburger/images/logo.png" alt="Project Smashburger" style="display: block; width: 337px; max-width: 100%; height: auto">
-<a href="https://instagram.com/" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; margin: 14px 0 0 -12px; width: 44px; height: 44px; color: #DCDCDC">
+<img class="ps-footer-logo" src="/projectsmashburger/images/logo.png" alt="Project Smashburger" style="display: block; width: 337px; max-width: 100%; height: auto">
+<a class="ps-footer-insta" href="https://instagram.com/" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; margin: 14px 0 0 -12px; width: 44px; height: 44px; color: #DCDCDC">
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg>
 </a>
 </div>
-<div style="width: 163px; padding-top: 24px">
+<div class="ps-quick" style="width: 163px; padding-top: 24px">
 <p style="margin: 0; font-size: 14.68px">Quick Links</p>
 <p style="margin: 14px 0 0; font-size: 14.68px; line-height: 1.6"><a href="/projectsmashburger/contact" style="color: #DCDCDC">Contact Us</a><br><a href="/projectsmashburger/about" style="color: #DCDCDC">Who We Are</a></p>
 </div>
