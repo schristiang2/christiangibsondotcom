@@ -1,5 +1,53 @@
-// Project Smashburger pages: menu tabs + form submission.
+// Project Smashburger pages: mobile menu, photo carousel, menu tabs + form submission.
 (function () {
+  // ---- Mobile menu (hamburger)
+  var burger = document.querySelector('.ps-burger');
+  var menu = document.getElementById('ps-menu');
+  if (burger && menu) {
+    var closeBtn = menu.querySelector('.ps-menu-close');
+    var openMenu = function () {
+      menu.hidden = false;
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    };
+    var closeMenu = function () {
+      menu.hidden = true;
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      burger.focus();
+    };
+    burger.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.hidden = true;
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.hidden) closeMenu();
+    });
+  }
+
+  // ---- "Follow us" photo carousel arrows (mobile)
+  var track = document.querySelector('.ps-carousel');
+  if (track) {
+    var step = function (dir) {
+      var w = track.clientWidth;
+      var max = track.scrollWidth - w;
+      var next = Math.round(track.scrollLeft / w) * w + dir * w;
+      if (next > max + 1) next = 0;
+      if (next < 0) next = max;
+      track.scrollTo({ left: next, behavior: 'smooth' });
+    };
+    var prev = document.querySelector('.ps-prev');
+    var nxt = document.querySelector('.ps-next');
+    if (prev) prev.addEventListener('click', function () { step(-1); });
+    if (nxt) nxt.addEventListener('click', function () { step(1); });
+  }
+
   // ---- Menu tabs (home page)
   var tabs = document.querySelectorAll('[data-tab]');
   tabs.forEach(function (btn) {
