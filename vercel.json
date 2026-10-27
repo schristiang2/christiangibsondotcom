@@ -2,7 +2,11 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!api/|projectsmashburger).*)",
+      "source": "/golfmonkey",
+      "destination": "/golfmonkey/index.html"
+    },
+    {
+      "source": "/((?!api/|projectsmashburger|golfmonkey).*)",
       "destination": "/index.html"
     }
   ],
