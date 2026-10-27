@@ -1,6 +1,20 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/((?!api/|projectsmashburger).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!api/|projectsmashburger).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/projectsmashburger/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
   ]
 }
