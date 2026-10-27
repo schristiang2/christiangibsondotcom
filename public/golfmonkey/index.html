@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Golf Monkey: The Case for a Redesign</title>
+<meta name="description" content="Why golfmonkeysc.com needs a redesign, and what the new version changes. Prepared by Christian Gibson.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fbfaf7;--fg:#1b2430;--muted:#5d6774;--rule:#e2ded5;--link:#1f5f8b;--figbg:#f1eee8}
+  @media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8e6e1;--muted:#a3abb5;--rule:#2c333b;--link:#8cc4ea;--figbg:#1c2128;color-scheme:dark}}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.6}
+  main{max-width:720px;margin:0 auto;padding:56px 20px 96px}
+  header{border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:8px}
+  h1{font-size:clamp(32px,5vw,42px);line-height:1.15;margin:0 0 12px;font-weight:600;text-wrap:balance}
+  .byline{font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+  .byline a{color:var(--link)}
+  h2{font-size:26px;line-height:1.25;margin:56px 0 14px;font-weight:600;text-wrap:balance}
+  h3{font-family:Inter,system-ui,sans-serif;font-size:17px;margin:36px 0 10px;font-weight:600}
+  p{margin:0 0 18px}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:10px}
+  a{color:var(--link)}
+  figure{margin:28px 0 32px}
+  figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:var(--figbg)}
+  figcaption{font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--muted);margin-top:8px}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 32px}
+  .pair figure{margin:0;min-width:0}
+  .pair figure img{max-height:900px;object-fit:cover;object-position:top}
+  @media (max-width:640px){.pair{grid-template-columns:1fr}}
+  .table-wrap{overflow-x:auto;margin:20px 0 22px}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-family:Inter,system-ui,sans-serif;font-size:14.5px;line-height:1.45}
+  th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+  th{font-weight:600;border-bottom:2px solid var(--fg)}
+  .sources li{font-size:16px}
+  .note{font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--muted)}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>Golf Monkey: The Case for a Redesign</h1>
+  <div class="byline"><span>October 27, 2026</span><span>Christian Gibson</span><a href="/golfmonkey/golf-monkey-case-for-a-redesign.pdf">Download PDF</a></div>
+</header>
+
+<h2>Why I'm writing this</h2>
+<p>Bob, Golf Monkey has everything a brand needs to take off: a real pro, a real personality, and a name people remember. I'm writing this because I want it to get off the ground, and right now I think the website could quietly hold it back.</p>
+<p>Some of what follows is blunt. That's on purpose. A launch that looks unfinished can be dead on arrival, and nobody tells you why. They just don't come back. I'd rather say it now, while it's cheap to fix, than watch good work get ignored.</p>
+<p>None of this is about the idea. The tuxedo monkey, your voice and your stories are the best parts, and I kept every one of them. What I changed is how much the site asks of a stranger before they trust it.</p>
+
+<h2>What the research says</h2>
+<p>People judge a website in a fraction of a second, they judge it mostly on looks, and they trust a brand less the moment it feels AI-made. Four findings back this up.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Finding</th><th>Study</th><th>What it means for Golf Monkey</th></tr></thead>
+<tbody>
+<tr><td>Visitors form an opinion of a page's look in about 50 milliseconds, and it matches what they think after looking longer.</td><td><a href="https://www.nature.com/news/2006/060109/full/news060109-13.html">Lindgaard et al., Carleton University (2006)</a></td><td>The first screen does most of the selling.</td></tr>
+<tr><td>46% of people judged a site's credibility partly on its overall design, more than any other factor.</td><td><a href="https://internetnews.com/marketing/study-for-site-cred-looks-matter">Stanford Web Credibility study, 2,684 people (2002)</a></td><td>If the site looks unfinished, the business looks unfinished.</td></tr>
+<tr><td>Visually complex pages are rated less appealing, even when the layout is familiar. Simple, expected layouts win first impressions.</td><td><a href="https://research.google/blog/users-love-simple-and-familiar-designs-why-websites-need-to-make-a-great-first-impression/">Google Research, Tuch et al. (2012)</a></td><td>Every extra line, label and tagline costs attention.</td></tr>
+<tr><td>When readers suspected content was AI-made, their trust dropped by nearly half, and purchase consideration for nearby ads fell 14%.</td><td><a href="https://ppc.land/raptive-study-shows-ai-content-cuts-reader-trust-by-half/">Raptive, 3,000 US adults (July 2025)</a></td><td>Looking AI-made has a measurable cost, whether or not it was.</td></tr>
+<tr><td>When people notice AI in a brand's marketing, 31% trust the brand less and only 7% trust it more.</td><td><a href="https://www.emarketer.com/content/visible-ai-marketing-four-times-more-likely-cost-brands-trust-than-build">Klaviyo and Datalily, 8,000 consumers (Dec 2025)</a></td><td>AI tells are four times more likely to hurt than help.</td></tr>
+</tbody>
+</table>
+</div>
+<p>The Raptive finding matters most here. The drop happened based on what readers <em>believed</em>, not on whether the content was actually AI-made. A site only has to look AI-built to pay that price.</p>
+
+<h2>A website's job is to get people where they're going</h2>
+<p>A web designer's job is to get information to people in the most natural, efficient way possible. Everything on a page either helps a visitor find what they came for or gets in their way.</p>
+<p>The golf course theme gets in the way. Walking a site hole by hole, with a scorecard that ticks off the pages you've visited, feels like the GeoCities sites of the late '90s, back when the web was a place people went to wander. Those sites were left behind for a reason. Nobody hangs out on the web anymore. People open a website to get something: book a lesson, check a price, buy a hat, find a phone number. Then they leave.</p>
+<p>Measured against that, the current site is all over the place. Lessons, merch, the podcast, the tour, the university and the Shoe Bet all get equal weight as nine holes, so nothing tells a visitor where to start. There's no concrete path from "who is this?" to "book a lesson." The site asks visitors to learn its game before it helps them, which tells me nobody designed it with the visitor in mind.</p>
+<p>That's also why it reads as AI-made. Generated sites lean hard on one gimmick and stamp the same template everywhere, because repeating is cheap. Here, nearly every hole ends with the same block: a big title, "Turn on volume," a pink "Pause" bar and a quote.</p>
+<figure><img src="/golfmonkey/img/repeat-strip.jpg" alt="The same video block repeated on the Lessons, Merch, Golfhouse and Tour pages" loading="lazy"><figcaption>The same block on the Lessons, Merch, Golfhouse and Tour pages.</figcaption></figure>
+<p>A good site does the opposite. It gives visitors one clear path, and it builds each page around the one thing someone came there to do.</p>
+
+<h2>Too much, all at once</h2>
+<p>The current design is in your face. Every section is shouting, and a first-time visitor doesn't know where to look.</p>
+<figure><img src="/golfmonkey/img/old-busy.jpg" alt="The nine-hole scorecard on the home page: course drawings, par labels, taglines and checkmarks on every row" loading="lazy"><figcaption>The scorecard on the current home page.</figcaption></figure>
+<p>Take the scorecard on the home page. Each row has a flag, a hole name, an AI-drawn fairway, a tagline, a par number and a checkbox. Above it sit three numbered rules. Every page adds more: dotted lines, tiny monospace captions, "Par 4 · Reachable — go for it," "In his own words, from the Golf Monkey Podcast." Each one is clever. Together, they're noise, and the Google study above found that this kind of visual complexity makes a site less appealing at first glance.</p>
+<p>There's a second problem. A lot of those lines are inside jokes: Par 359, "Keep Mrs Pro happy," "Still pushing dirt," the hot dog at the turn. Inside jokes are only funny to the insiders. To a stranger, they read as a language they don't speak yet, and that makes them feel like an outsider on their first visit.</p>
+<p>The jokes aren't the problem. The timing is. The best inside jokes in any community aren't written in advance. They come out of the back-and-forth between a host and the audience: a line from an episode that people start repeating, a bet that turns into a tradition, a nickname the regulars give something. That's the sacred part of building a following, and it has to happen on its own. The audience decides which jokes stick.</p>
+<p>So the site should leave room for that. Lead with what Golf Monkey is and what you can do for someone. Let the personality show in your voice and your clips. Then, as the audience picks its favorites, those become the inside jokes worth putting on a hat.</p>
+
+<h2>Even without a redesign, the interface has to change</h2>
+<p>If you don't want a full redesign, that's your call. But the interface itself needs work either way, because right now it looks like a freshman's first web design project.</p>
+<figure><img src="/golfmonkey/img/old-menu.jpg" alt="The current desktop site with the hamburger menu open over the hero, on top of a separate row of hole links" loading="lazy"><figcaption>The desktop site with "The Course" menu open.</figcaption></figure>
+<p>The signs are in the basic building blocks:</p>
+<ul>
+<li><strong>Navigation that doubles up.</strong> On desktop, a hamburger menu labeled "The Course" drops down over the page, while a full row of hole links already sits right under it. Two menus for the same ten pages means neither one was planned.</li>
+<li><strong>A hamburger icon where it doesn't belong.</strong> Hamburger menus exist to save space on phones. On a wide desktop screen with plenty of room, it hides navigation that should be visible.</li>
+<li><strong>Dropdowns hiding content.</strong> The podcast tucks its listening options behind "(and anywhere else you listen to podcasts)" instead of just showing them.</li>
+<li><strong>Icons doing decoration instead of work.</strong> Every row gets a flag, a hand-drawn fairway, a hot dog or a trophy. None of them helps someone find anything.</li>
+<li><strong>Pages that don't look like the same site.</strong> The holes, Monkey Wrench, the Hall of Fame and the forfeit certificate each have a different header and a different layout. Monkey Wrench even carries its own "v1 demo" label.</li>
+</ul>
+<p>That last point matters most. A site where every page is built differently is a classic sign of AI generation: each page was made in its own prompt, and nobody pulled them together. Visitors won't be able to say what's wrong. They'll just feel it, and as the research above shows, that feeling turns into distrust. People intuitively know something is off, and they leave.</p>
+
+<h2>What the redesign changes</h2>
+<p>The redesign gives visitors a clear path and cuts the clutter, so a stranger knows what Golf Monkey is and how to book within the first screen. Pages are about a third shorter overall, and every page gets a layout built for what it does instead of the same template.</p>
+
+<h3>The first screen</h3>
+<p>Today, the home page opens on a hero photo and a long scroll animation before a visitor learns that you teach, sell gear or host a podcast. The new home page puts two buttons on the first screen, "Walk the course" and "Book a lesson — $125/hr," then shows the merch, a map of the course and the podcast.</p>
+<div class="pair">
+<figure><img src="/golfmonkey/img/old-home-v2.jpg" alt="Before: the current home page, captured while scrolling" loading="lazy"><figcaption>Before</figcaption></figure>
+<figure><img src="/golfmonkey/img/new-home.jpg" alt="After: the new home page" loading="lazy"><figcaption>After</figcaption></figure>
+</div>
+
+<h3>Booking a lesson</h3>
+<p>Lessons pay the bills, so booking gets its own page. Today the price sits on the Lessons hole between videos, and the button sends people to Square. The new Book a Lesson page shows private, Monkey Wrench member and junior lessons side by side, with a short form, the studio address and your number to text.</p>
+<div class="pair">
+<figure><img src="/golfmonkey/img/old-lessons.jpg" alt="Before: the Lessons hole" loading="lazy"><figcaption>Before</figcaption></figure>
+<figure><img src="/golfmonkey/img/new-book.jpg" alt="After: the Book a Lesson page" loading="lazy"><figcaption>After</figcaption></figure>
+</div>
+
+<h3>The Pro Shop</h3>
+<p>Drop 001 gets a proper store window. Today the boxes swipe one at a time and share the page with a podcast clip. The new Pro Shop shows all three boxes and all nine pieces at once, with prices, filters and a button on each.</p>
+<div class="pair">
+<figure><img src="/golfmonkey/img/old-merch.jpg" alt="Before: the Merch hole" loading="lazy"><figcaption>Before</figcaption></figure>
+<figure><img src="/golfmonkey/img/new-proshop.jpg" alt="After: the Pro Shop page" loading="lazy"><figcaption>After</figcaption></figure>
+</div>
+
+<h3>Everything else</h3>
+<ul>
+<li><strong>Navigation:</strong> a header with Pro Shop and Book a Lesson always visible, plus a row of the holes so people can jump straight to one.</li>
+<li><strong>Your story:</strong> your career moves out of a sideways carousel into its own page, The Pro, laid out as a scorecard.</li>
+<li><strong>Length:</strong> about 50 laptop screens of scrolling to see every page today, about 34 in the new version, even with two new pages.</li>
+</ul>
+
+<h2>What stays the same</h2>
+<p>Everything that makes it Golf Monkey stays. This is the same brand, made easier to walk into.</p>
+<ul>
+<li><strong>A little golf.</strong> The flavor lives on in page names and the "Next tee" link at the bottom of each page, but the menu works like any other website. Nobody has to play a game to find the booking page.</li>
+<li><strong>The monkey.</strong> Same tuxedo, same midnight, fuchsia and powder blue, same type from the brand brief.</li>
+<li><strong>Your voice.</strong> Every quote and video clip is still there, including "We take it seriously. He's wearing a tuxedo. At the same time, it should be fun."</li>
+<li><strong>The jokes.</strong> They're still there too, just not stacked on the first screen. As the audience picks its favorites, those get the spotlight.</li>
+</ul>
+
+<h2>Next step</h2>
+<p>The new version is already built, so the ask is small: 20 minutes to walk through it together. You click around, tell me what to change, and I make those changes before anything goes live. The address stays golfmonkeysc.com.</p>
+<p>I'm putting this much into the case because I want Golf Monkey to launch strong. You only get one first impression with each new visitor, and I'd like that first impression to make them want to book.</p>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li><a href="https://www.nature.com/news/2006/060109/full/news060109-13.html">Nature News: Lindgaard et al., web users judge sites in 50 milliseconds (2006)</a></li>
+<li><a href="https://internetnews.com/marketing/study-for-site-cred-looks-matter">Stanford Web Credibility study, B.J. Fogg and Consumer WebWatch (2002)</a></li>
+<li><a href="https://research.google/blog/users-love-simple-and-familiar-designs-why-websites-need-to-make-a-great-first-impression/">Google Research: users love simple and familiar designs (2012)</a></li>
+<li><a href="https://ppc.land/raptive-study-shows-ai-content-cuts-reader-trust-by-half/">Raptive study: suspected AI content cuts reader trust by about half (2025)</a></li>
+<li><a href="https://www.emarketer.com/content/visible-ai-marketing-four-times-more-likely-cost-brands-trust-than-build">eMarketer on Klaviyo and Datalily: visible AI in marketing and brand trust (2026)</a></li>
+</ul>
+<p class="note">Screenshots of the live site were taken on October 27, 2026.</p>
+
+<footer class="note">Christian Gibson · <a href="/">christiangibson.com</a></footer>
+</main>
+</body>
+</html>
