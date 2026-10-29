@@ -6,7 +6,11 @@
       "destination": "/golfmonkey/index.html"
     },
     {
-      "source": "/((?!api/|projectsmashburger|golfmonkey).*)",
+      "source": "/blog/proloded",
+      "destination": "/blog/proloded/index.html"
+    },
+    {
+      "source": "/((?!api/|projectsmashburger|golfmonkey|blog/).*)",
       "destination": "/index.html"
     }
   ],

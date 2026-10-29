@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The MacBook Pro Has PROLEDed — Christian Gibson</title>
+<meta name="description" content="A touchscreen nobody asked for, a display name nobody can say with a straight face, and a Siri button disguised as a camera cutout.">
+<meta property="og:title" content="The MacBook Pro Has PROLEDed">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://christiangibson.com/blog/proloded">
+<meta property="og:url" content="https://christiangibson.com/blog/proloded">
+<meta property="og:description" content="A touchscreen nobody asked for, a display name nobody can say with a straight face, and a Siri button disguised as a camera cutout.">
+<meta property="og:image" content="https://christiangibson.com/blog/proloded/proled-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A glossy black screen covered in fingerprints, smudges and scratches">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The MacBook Pro Has PROLEDed">
+<meta name="twitter:image" content="https://christiangibson.com/blog/proloded/proled-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --text: #e8e6e3;
+    --muted: #8f8b86;
+    --rule: #262422;
+    --accent: #f2efe9;
+    --link: #f2efe9;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero: the smudged screen sits behind the title and fades into the page */
+  .hero {
+    position: relative;
+    min-height: min(78vh, 720px);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    filter: grayscale(1) contrast(1.05);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(10,10,10,.15) 0%, rgba(10,10,10,.35) 45%, var(--bg) 100%);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+  }
+  .kicker {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 8vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+    color: var(--accent);
+    text-wrap: balance;
+  }
+  .byline {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .byline strong { color: var(--text); font-weight: 500; }
+
+  /* Article body */
+  article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 24px 64px;
+  }
+  article p { margin: 0 0 1.25em; }
+  article > p:first-of-type {
+    font-family: var(--serif);
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: var(--accent);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(26px, 4.2vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+    margin: 2.2em 0 .7em;
+    text-wrap: balance;
+  }
+  blockquote {
+    margin: 1.6em 0;
+    padding: 0 0 0 22px;
+    border-left: 2px solid var(--accent);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.35em;
+    line-height: 1.45;
+    color: var(--accent);
+  }
+  blockquote p { margin: 0; }
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-color: rgba(242,239,233,.35);
+    text-underline-offset: 3px;
+    transition: text-decoration-color .15s;
+  }
+  a:hover { text-decoration-color: var(--link); }
+  strong { color: var(--accent); font-weight: 600; }
+  kbd {
+    font-family: var(--sans);
+    font-size: .85em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border: 1px solid #3a3734;
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    background: #161514;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .closer {
+    font-family: var(--serif);
+    font-size: 1.2em;
+    line-height: 1.55;
+    color: var(--accent);
+    margin-top: 2em;
+  }
+
+  /* Credits */
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  footer h3 {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+  footer ul { list-style: none; margin: 0 0 28px; padding: 0; }
+  footer li { margin: 0 0 6px; }
+  footer a { color: var(--muted); text-decoration-color: rgba(143,139,134,.4); }
+  footer a:hover { color: var(--text); }
+  .sig { color: var(--text); }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .hero { min-height: 62vh; }
+    .hero-inner, article, footer { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="/blog/proloded/proled-hero.jpg" alt="A glossy black screen covered in fingerprints, smudges and scratches">
+  <div class="hero-inner">
+    <p class="kicker">Apple · Opinion</p>
+    <h1>The MacBook Pro Has PROLEDed</h1>
+    <p class="byline"><strong>Christian Gibson</strong> · <time datetime="2026-10-29">October 29, 2026</time></p>
+  </div>
+</header>
+
+<article>
+  <p>Apple's lineup is starting to look like the late-'90s, brink-of-bankruptcy Apple: too many products, too many names, and no clear idea who any of them are for. The difference is that this time Apple isn't going bankrupt anytime soon. Which almost makes it worse. There's no crisis forcing anyone to clean it up.</p>
+
+  <h2>"PROLED XDR." Are you kidding me?</h2>
+  <p>The new M5 Pro MacBook Pro ships with a <strong>PROLED XDR Display</strong>. Are you fucking kidding me? Fire Joz.</p>
+  <p>PROLED sounds like a word a proctologist would use.</p>
+  <blockquote><p>"I'm sorry, sir. Your anus has proleded from the shock of the cost."</p></blockquote>
+  <p>That's the name they landed on. Somebody pitched it, a room full of people nodded, and now it's on a product page.</p>
+
+  <h2>Nothing to show, so show a touchscreen</h2>
+  <p>Watch <a href="https://www.instagram.com/reel/DfDMFqet5Pf/?vrfl=M3JjemhsYmk1c3c4" target="_blank" rel="noopener">this clip from the launch</a>. This is the stuff companies do when they have nothing significant to show off. They hope your little monkey brain goes "wow, pretty" and doesn't stop to question the lack of ingenuity.</p>
+  <p>"It makes for a good demo!" Sure. It does. That's all it does.</p>
+
+  <h2>Touch is the slowest way to use a laptop</h2>
+  <p>There is not a single pro in the world who can use a MacBook's touchscreen faster than I can work a trackpad, a Wacom tablet, a mouse, or a keyboard. No way. Reaching up and touching the screen of a laptop is the slowest possible way to interact with it.</p>
+  <p>Pros live on key commands. The whole point is getting into that state of moving at the speed of creativity, where your hands never leave the tools and the computer just keeps up with you. Lifting your arm to poke at a vertical screen breaks that every single time. Touch is too slow for the way real work actually gets done.</p>
+
+  <h2>Who is this even for?</h2>
+  <p>Apple doesn't seem to know who it's marketing to.</p>
+  <p>The kids who are excited about a touchscreen can't afford this machine. The adults who can afford it are perfectly happy with the "normal" MacBook Pro.</p>
+  <p>And think about who those kids are. Apple raised an entire generation on iPads, to the point where a lot of them don't understand what a file is or where it's stored. These are people who, statistically, won't buy a MacBook because it doesn't have a Netflix app. Bolting a touchscreen onto a $2,000+ pro laptop isn't going to win them over. It's just going to confuse the people who were already buying it.</p>
+
+  <h2>What this does to macOS</h2>
+  <p>Here's the part that actually worries me. Once macOS has to serve two interfaces, touch and pointer, every feature has to be designed, built, and tested twice. The predictable result is fewer features, slower, with more compromises. The Mac gets worse at being a Mac so it can be slightly better at being an iPad.</p>
+
+  <h2>The Dynamic Island is a Siri ad</h2>
+  <p>The only reason the Dynamic Island is on a Mac is that Apple is trying to sell Siri AI. I guarantee they want users to associate that pill at the top of the screen with "chatting with AI," because you can swipe down on it with the same gesture and type to Siri.</p>
+  <p>But why would I lift my hands off the keyboard when I can hit <kbd>⌘ + Space</kbd>?</p>
+
+  <h2>What Apple should be doing instead: gaming</h2>
+  <p>If Apple wants something new for the Mac, how about making Macs good for gaming?</p>
+  <p>Apple silicon is more than capable. What's missing is the games, and that's a leadership problem, not an engineering one. Ternus needs to put on his big boy pants and get to work convincing the gaming industry that the Mac is the place for gamers.</p>
+  <p>That's exactly what Steve did. He met with the entire music industry to convince them that the Mac and iTunes were the place for their music. He did the same thing with film when the video iPod came out, and again with publishers for Apple Books. He didn't wait for the industries to come to Apple. He went and got them.</p>
+
+  <h2>Let Ternus cook?</h2>
+  <p>Like Jobs, Tim Cook had an incredible work ethic, just aimed at different things: operations, supply chains, margins. Maybe we should be patient and let Ternus cook. He's only been CEO since September.</p>
+  <p>But Tim definitely shit the product bed on his way out, and left Ternus to roll around in it all night.</p>
+  <p class="closer">A touchscreen nobody asked for, a display name nobody can say with a straight face, and a Siri button disguised as a camera cutout. The Mac deserves better than <em>a good demo</em>.</p>
+</article>
+
+<footer>
+  <h3>Credits</h3>
+  <ul>
+    <li>Words by <span class="sig">Christian Gibson</span></li>
+    <li>Header image: Adobe Stock #373233508</li>
+  </ul>
+  <h3>Sources</h3>
+  <ul>
+    <li><a href="https://www.businesstoday.in/technology/news/story/apples-first-touchscreen-macbook-pro-launch-on-october-28-oled-display-dynamic-island-and-more-563549-2026-10-26" target="_blank" rel="noopener">Business Today — Apple's first touchscreen MacBook Pro launch</a></li>
+    <li><a href="https://wifihifi.com/john-ternus-to-take-over-as-apple-ceo/" target="_blank" rel="noopener">Wifihifi — John Ternus to take over as Apple CEO</a></li>
+    <li><a href="https://www.instagram.com/reel/DfDMFqet5Pf/?vrfl=M3JjemhsYmk1c3c4" target="_blank" rel="noopener">Instagram — launch clip</a></li>
+  </ul>
+  <p>© 2026 Christian Gibson</p>
+</footer>
+
+</body>
+</html>
