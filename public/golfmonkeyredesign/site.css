@@ -58,3 +58,11 @@ img, video { max-width: 100%; }
   html { scroll-behavior: auto; }
   .gm-top { transition: none; }
 }
+
+/* Smallest phones (under 360px): shrink the logo so the header stays on one line */
+@media (max-width: 359px) {
+  .gm-mheader > div { padding-left: 16px !important; padding-right: 16px !important; }
+  .gm-mheader > div > a:first-child { font-size: 20px !important; gap: 8px !important; }
+  .gm-mheader > div > a:first-child img { width: 22px !important; height: 30px !important; }
+  .gm-mobile h1 { font-size: min(72px, 21vw) !important; }
+}
