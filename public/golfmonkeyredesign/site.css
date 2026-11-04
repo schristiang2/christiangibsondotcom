@@ -4,7 +4,6 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; -webkit-text-size-adjust: 100%; }
 img, video { max-width: 100%; }
-button, input { font-family: inherit; }
 :focus-visible { outline: 3px solid #F0A9CF; outline-offset: 2px; }
 [hidden] { display: none !important; }
 
