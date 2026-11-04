@@ -6,6 +6,10 @@
       "destination": "/golfmonkey/index.html"
     },
     {
+      "source": "/golfmonkey2",
+      "destination": "/golfmonkey2/index.html"
+    },
+    {
       "source": "/golfmonkeyredesign",
       "destination": "/golfmonkeyredesign/index.html"
     },

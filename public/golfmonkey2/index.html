@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Golf Monkey: What Changed and Why</title>
+<meta name="description" content="Every change in the Golf Monkey redesign, and the research behind it. Prepared by Christian Gibson.">
+<meta property="og:title" content="Golf Monkey: What Changed and Why">
+<meta property="og:description" content="Every change in the Golf Monkey redesign, and the research behind it.">
+<meta property="og:image" content="https://christiangibson.com/og/golfmonkeyredesign.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fbfaf7;--fg:#1b2430;--muted:#5d6774;--rule:#e2ded5;--link:#1f5f8b;--figbg:#f1eee8}
+  @media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8e6e1;--muted:#a3abb5;--rule:#2c333b;--link:#8cc4ea;--figbg:#1c2128;color-scheme:dark}}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.6}
+  main{max-width:720px;margin:0 auto;padding:56px 20px 96px}
+  header{border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:8px}
+  h1{font-size:clamp(32px,5vw,42px);line-height:1.15;margin:0 0 12px;font-weight:600;text-wrap:balance}
+  .byline{font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+  .byline a{color:var(--link)}
+  h2{font-size:26px;line-height:1.25;margin:56px 0 14px;font-weight:600;text-wrap:balance}
+  h3{font-family:Inter,system-ui,sans-serif;font-size:17px;margin:36px 0 10px;font-weight:600}
+  p{margin:0 0 18px}
+  ul,ol{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:10px}
+  a{color:var(--link)}
+  figure{margin:28px 0 32px}
+  figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:var(--figbg)}
+  figcaption{font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--muted);margin-top:8px}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 32px}
+  .pair figure{margin:0;min-width:0}
+  .pair figure img{max-height:900px;object-fit:cover;object-position:top}
+  @media (max-width:640px){.pair{grid-template-columns:1fr}}
+  .phones{grid-template-columns:1fr 1fr;max-width:520px}
+  .table-wrap{overflow-x:auto;margin:20px 0 22px}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-family:Inter,system-ui,sans-serif;font-size:14.5px;line-height:1.45}
+  th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+  th{font-weight:600;border-bottom:2px solid var(--fg)}
+  .sources li{font-size:16px}
+  .note{font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--muted)}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule)}
+  @media print{body{font-size:12pt}main{padding:0}h2{break-after:avoid}figure,.pair,tr{break-inside:avoid}a{color:inherit}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>Golf Monkey: What Changed and Why</h1>
+  <div class="byline"><span>November 4, 2026</span><span>Christian Gibson</span><a href="/golfmonkeyredesign">See the redesign</a><a href="/golfmonkey2/golf-monkey-what-changed-and-why.pdf">Download PDF</a></div>
+</header>
+
+<h2>Why I'm writing this</h2>
+<p>Bob, this follows <a href="/golfmonkey">The Case for a Redesign</a>. That piece explained why the site needed to change. This one walks through every change I actually made, and the research behind each one, so you can see the thinking and push back on anything that doesn't sit right.</p>
+<p>Three ideas drive almost everything here:</p>
+<ul>
+<li><strong>One page for each job.</strong> The site used to be one very long page. Now each thing Golf Monkey does gets its own page with its own button.</li>
+<li><strong>Personality in the voice, not the structure.</strong> The golf-course gimmick is gone. Your stories, quotes and jokes all stayed.</li>
+<li><strong>Community first.</strong> The podcast and the Shoe Bet are how Golf Monkey is building its following right now, so they moved to the top of the home page.</li>
+</ul>
+
+<h2>What I took out</h2>
+<p>Before redesigning anything, I went through the current site and pulled out what was hurting it. Some of it was broken, and some of it was quietly telling visitors the site wasn't finished.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>What was there</th><th>Why it had to go</th></tr></thead>
+<tbody>
+<tr><td>Your review notes ("Caddie Notes") were showing on the public site, with "Pin it" buttons.</td><td>Anyone could read your private feedback, like "email bob &amp; amber" and notes about which clip to replace.</td></tr>
+<tr><td>13 of the 15 Hall of Fame inductees were demo entries with made-up names and scores.</td><td>Fake winners undercut the one thing the Shoe Bet runs on: that it's real. Only Nº 001 and 002 stayed, plus an open spot for the next shoe.</td></tr>
+<tr><td>18 podcast buttons that all went nowhere.</td><td>Dead buttons read as broken. The new page keeps Apple, Spotify and YouTube, and the rest can come back once the show is on them.</td></tr>
+<tr><td>Six different navigation menus on one page.</td><td>Two or more menus for the same pages means none of them was planned. There's now one menu.</td></tr>
+<tr><td>Merch said "Drop 001 is at the embroiderer," right above eight products with prices, internal SKU codes and buy buttons.</td><td>It contradicted itself, and SKU codes like "GM-HAT-WHITEN" are for the warehouse, not customers.</td></tr>
+<tr><td>The podcast said "First episodes drop when they're good," next to clips labeled Episode 6.</td><td>Visitors notice when a page disagrees with itself.</td></tr>
+<tr><td>Four separate email signups on the same page.</td><td>Each page now has one signup, tied to what that page is about. The Tour list is kept separate, as you asked.</td></tr>
+<tr><td>The whole site was a single 740 KB page.</td><td>Splitting it into pages means each one loads faster and only loads what it needs.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>One page for each job</h2>
+<p>The new site has ten pages: Home, Lessons, Monkey Wrench, Fitness, Podcast, Shop, Shoe Bet, About, and Tour and University as "coming soon" pages. Every page ends with the one thing a visitor came there to do: "Book a lesson" on Lessons, "Join the drop list" on Shop, "Sign the certificate" on the Shoe Bet, and so on.</p>
+
+<h2>Retiring the golf course</h2>
+<p>The first redesign kept a light version of the course theme: hole numbers, pars, a scorecard and a "Next tee" link on each page. Seeing it built out, it still felt like a GeoCities site. So the theme now lives in your voice, and the structure works like any other website.</p>
+<ul>
+<li><strong>Plain menu.</strong> Lessons, Monkey Wrench, Fitness, Podcast, Shop, Shoe Bet, About, Coming soon. No hole numbers. It's centered and set in the same bold type as the logo.</li>
+<li><strong>Plain labels.</strong> "Hole 5 · Par 4 · One-on-one" became "In person." "Hole 4 · Par 3 · Island green" became "Virtual lessons."</li>
+<li><strong>Real buttons at the bottom of each page</strong> instead of "Next tee → Hole 6."</li>
+<li><strong>The scrolling ticker is gone</strong>, and the typewriter-style font is used only for real information like prices and dates.</li>
+<li><strong>One golf joke stayed on purpose:</strong> "Par is a suggestion" in the footer.</li>
+</ul>
+<p>Google's research on first impressions found that visually complex pages are rated less appealing, and simple, familiar layouts win. Every hole number and par label was one more thing a first-time visitor had to decode.</p>
+<figure><img src="/golfmonkey2/img/new-nav.jpg" alt="The new navigation bar: Golf Monkey logo, a centered menu in bold condensed type, and a pink Book a lesson button" loading="lazy"><figcaption>The new menu: one bar, plain words, the same type as the logo.</figcaption></figure>
+
+<h2>A home page that builds the Troop</h2>
+<p>You told me the podcast and the Shoe Bet are how Golf Monkey is building community buy-in right now. On the earlier design they sat near the bottom of the home page, three to four screens down on a phone. Most visitors never would have reached them.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Finding</th><th>Source</th><th>What it means for Golf Monkey</th></tr></thead>
+<tbody>
+<tr><td>57% of the time people spend on a page goes to the first screen, and 74% goes to the first two screens.</td><td><a href="https://www.williamscommerce.com/is-above-the-fold-space-still-important/">Nielsen Norman Group (2018), via Williams Commerce</a></td><td>Whatever sits in the first two screens is what most people see.</td></tr>
+<tr><td>About 17% of viewing time lands just below the first screen.</td><td><a href="https://mixpanel.com/blog/optimizing-above-the-fold">Mixpanel</a></td><td>The spot right under the hero is the second-best place on the page.</td></tr>
+</tbody>
+</table>
+</div>
+<p>So the podcast and the Shoe Bet now sit in a "Join the Troop" block directly under the hero, each with its own clip or photo and its own button. Underneath, one signup ties them together, with a nudge to tag <strong>@golfmonkeysc #shoebet</strong>.</p>
+<p>The hero's two buttons are now "Listen to the podcast" and "Take the Shoe Bet." "Book a lesson" didn't go anywhere: it's pinned in the header on every page and it's the last thing on the home page. On phones, the hero is a little shorter, so the top of "Join the Troop" peeks above the fold. Seeing part of the next section is what tells people to keep scrolling.</p>
+<figure><img src="/golfmonkey2/img/new-troop.jpg" alt="The Join the Troop block: a podcast card and a Shoe Bet card side by side, with a shared email signup below" loading="lazy"><figcaption>"Join the Troop," right under the hero. Photo and video spots are shown as placeholders here; the live preview uses your real clips.</figcaption></figure>
+<p>The new home page order is: hero, Join the Troop, merch, "We're all just monkeys swinging a golf club," Where to start, and a closing "Book a lesson" band.</p>
+
+<h2>Why not a rotating hero?</h2>
+<p>I looked at putting the podcast and the Shoe Bet into a hero slideshow instead. The data on rotating heroes is consistent: almost nobody uses them, and the slides after the first barely get seen.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Finding</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>About 1% of visitors clicked a homepage carousel, and roughly 84% of those clicks went to the first slide.</td><td><a href="https://erikrunyon.com/2013/01/carousel-stats/">Erik Runyon, University of Notre Dame</a></td></tr>
+<tr><td>A static image was clicked over 40% of the time, compared with 2% for a slider. Eye tracking showed people mostly ignored the slider.</td><td><a href="https://www.orbitmedia.com/blog/rotating-sliders-hurt-website/">Conversionista, via Orbit Media</a></td></tr>
+<tr><td>Removing a slider lifted one company's sales by 23%.</td><td><a href="https://www.orbitmedia.com/blog/rotating-sliders-hurt-website/">Adobe client test, via Orbit Media</a></td></tr>
+<tr><td>People treat rotating banners like ads and skip them.</td><td><a href="https://usability.yale.edu/usability-best-practices/hero-imagescarousels">Yale Usability, citing Nielsen Norman Group</a></td></tr>
+</tbody>
+</table>
+</div>
+<p>If the podcast and the Shoe Bet became slides two and three, roughly one visitor in ten would ever see them. Giving them their own cards at the top gets them close to first-slide attention without the downside.</p>
+
+<h2>Merch you can browse with a swipe</h2>
+<p>The new merch row, "Wear the Monkey," shows all eight products in a row people can swipe or scroll through, with a "Shop all merch" button. Each card links straight to that product in the Pro Shop. "Where to start" (Lessons, Monkey Wrench, Pro Shop and Fitness) works the same way on phones, and every card now has a photo.</p>
+<p>That's a different thing from a rotating hero. Nothing moves on its own, the next card peeks in so people know there's more, and every card is the same kind of thing. That's how a product gallery works, and galleries test well: in one study, shoppers advanced product galleries 72% of the time (<a href="https://www.orbitmedia.com/blog/rotating-sliders-hurt-website/">Mobify, via Orbit Media</a>).</p>
+
+<h2>Phones get their own design</h2>
+<p>A lot of visitors will find Golf Monkey on their phone, often straight from Instagram, so the phone version was designed on its own instead of being a squeezed-down desktop page.</p>
+<ul>
+<li><strong>A real menu button</strong> that opens the full page list, with Tour and University under "Coming soon."</li>
+<li><strong>One column, full-width buttons</strong>, so nothing has to be pinched or zoomed.</li>
+<li><strong>Buttons at least 44 pixels tall</strong>, the size accessibility guidelines recommend so a thumb can hit them reliably (<a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">WCAG 2.1</a>).</li>
+<li><strong>A "Back to top" button</strong> at the bottom of every page.</li>
+<li><strong>Same features on both.</strong> The desktop and phone home pages have the same sections in the same order. Only the layout changes.</li>
+</ul>
+<div class="pair phones">
+<figure><img src="/golfmonkey2/img/new-mobile-fold.jpg" alt="The new mobile home page first screen, with the top of Join the Troop peeking in at the bottom" loading="lazy"><figcaption>First screen on a phone</figcaption></figure>
+<figure><img src="/golfmonkey2/img/new-mobile-merch.jpg" alt="The mobile merch row with a swipeable product card and a Shop all merch button" loading="lazy"><figcaption>The swipeable merch row</figcaption></figure>
+</div>
+<p>I checked every page at phone, tablet, laptop and desktop widths. Nothing scrolls sideways, and on narrower laptops the menu folds into the menu button instead of wrapping onto two lines.</p>
+
+<h2>New: Golf Monkey Fitness</h2>
+<p>Brandon gets his own page. It covers TPI-certified, golf-specific training for agility, flexibility and swing speed, how it works (screen, plan, train and re-test), ways to train, and your referral front and center: "Bob won't send you to someone who is smoke and mirrors." It's in the menu, on the home page and linked from About. Brandon's bio, prices and booking link are placeholders until he sends them.</p>
+<figure><img src="/golfmonkey2/img/new-fitness.jpg" alt="The Golf Monkey Fitness page hero" loading="lazy"><figcaption>The top of the Fitness page.</figcaption></figure>
+
+<h2>Your notes, handled</h2>
+<p>Every note you left on the current site is in the redesign:</p>
+<ul>
+<li>Swap in the Untucked clip on the home page.</li>
+<li>A bag of tees in every box, with spots ready for the new merch photos and updated pricing.</li>
+<li>Rewrite the Monkey Wrench quote in plain English.</li>
+<li>Move the podcast's listen buttons to the top.</li>
+<li>Add an "Email Bob &amp; Amber" button on University.</li>
+<li>Make the "Get on his lesson book" button pink.</li>
+<li>Thank everyone who supported The Golfhouse at the end of About, with a link to memberships and event rentals.</li>
+<li>Add a fitness section for Brandon (now a full page).</li>
+<li>Keep the Tour email list separate.</li>
+</ul>
+
+<h2>A note on color</h2>
+<p>The redesign keeps your colors: navy, cream and the Golf Monkey pink. I also tested a golf-themed version to see if a different palette would serve you better. The research pointed away from the obvious choice. Kelly green and yellow are so tied to the Masters that brands using them look like tribute merch, and golf apparel has been moving toward muted, timeless colors paired with classic navy (<a href="https://www.si.com/golf/2025-golf-fashion-trends-quickly-evolving">Sports Illustrated</a>, <a href="https://www.golfdigest.com/story/fall-golf-style-color-trends">Golf Digest</a>). Azalea pink also turns out to be a classic golf accent (<a href="https://golferhive.com/golf-aesthetic-color-palette/">GolferHive</a>), so your pink was never off-brand. The golf palette is there as an option if you want to see it.</p>
+
+<h2>What I need from you</h2>
+<p>Most of the site already uses your real photos and clips from golfmonkeysc.com. To finish it, I need:</p>
+<ul>
+<li><strong>New:</strong> two photos of Brandon (one training a client, one headshot), a clip of you talking about fitness, the Untucked clip, and a vertical version of the hero video for phones.</li>
+<li><strong>Reshoots:</strong> new Pro Shop and box photos with the updated contents, and the re-cut Shoe Bet video from your note.</li>
+<li><strong>From Brandon:</strong> his bio, certifications, prices and booking link.</li>
+<li><strong>Links:</strong> the podcast's Apple, Spotify and YouTube links.</li>
+</ul>
+
+<h2>Next step</h2>
+<p>The redesign is built and running as a private preview. The ask is the same as last time: 20 minutes to walk through it together. You click around, tell me what to change, and I make those changes before anything goes live on golfmonkeysc.com.</p>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li><a href="https://www.williamscommerce.com/is-above-the-fold-space-still-important/">Williams Commerce: Is above-the-fold space still important? (citing Nielsen Norman Group, 2018)</a></li>
+<li><a href="https://mixpanel.com/blog/optimizing-above-the-fold">Mixpanel: Above the fold, optimization for today's users</a></li>
+<li><a href="https://erikrunyon.com/2013/01/carousel-stats/">Erik Runyon: Carousel stats, University of Notre Dame (2013)</a></li>
+<li><a href="https://www.orbitmedia.com/blog/rotating-sliders-hurt-website/">Orbit Media: Do rotating sliders help or hurt your website? Research roundup (2015)</a></li>
+<li><a href="https://usability.yale.edu/usability-best-practices/hero-imagescarousels">Yale Usability: Hero images and carousels</a></li>
+<li><a href="https://research.google/blog/users-love-simple-and-familiar-designs-why-websites-need-to-make-a-great-first-impression/">Google Research: Users love simple and familiar designs (2012)</a></li>
+<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">W3C: WCAG 2.1, Understanding target size</a></li>
+<li><a href="https://www.si.com/golf/2025-golf-fashion-trends-quickly-evolving">Sports Illustrated: 2025 golf fashion trends</a></li>
+<li><a href="https://www.golfdigest.com/story/fall-golf-style-color-trends">Golf Digest: Fall golf style color trends</a></li>
+<li><a href="https://golferhive.com/golf-aesthetic-color-palette/">GolferHive: Golf aesthetic color palettes</a></li>
+</ul>
+<p class="note">Screenshots are from the redesign files on November 4, 2026. Photo and video spots show as placeholders in the screenshots; the live preview uses the real files from golfmonkeysc.com.</p>
+
+<footer class="note">Christian Gibson · Synergy Creative Group · <a href="/">christiangibson.com</a></footer>
+</main>
+</body>
+</html>
