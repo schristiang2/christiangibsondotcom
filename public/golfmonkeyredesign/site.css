@@ -1,16 +1,27 @@
-/* Golf Monkey redesign preview — shared styles layered over each page's inline styles. */
+/* Golf Monkey redesign preview — shared styles layered over each page's inline styles.
+   Each page carries two layouts from the Claude Design canvases:
+   .gm-desktop (desktop canvas) and .gm-mobile (mobile canvas). */
 html { scroll-behavior: smooth; }
 body { margin: 0; -webkit-text-size-adjust: 100%; }
 img, video { max-width: 100%; }
+button, input { font-family: inherit; }
 :focus-visible { outline: 3px solid #F0A9CF; outline-offset: 2px; }
+[hidden] { display: none !important; }
 
-/* Mobile menu button (hidden on desktop) */
+/* Which layout shows */
+.gm-mobile { display: none; }
+@media (max-width: 760px) {
+  .gm-desktop { display: none !important; }
+  .gm-mobile { display: block; }
+  .gm-top { display: none !important; } /* mobile design has its own Back to top in the footer */
+}
+
+/* Desktop menu button: only between phone and full desktop widths */
 .gm-menu { display: none; }
-
-@media (max-width: 900px) {
-  .gm-header > div { padding: 8px 20px !important; gap: 8px 10px !important; }
-  .gm-header > div > a:first-child { order: 1; font-size: 26px !important; margin-right: auto; }
-  .gm-header > div > a[href*="squareup"] { order: 2; padding: 12px 14px !important; font-size: 15px !important; }
+@media (min-width: 761px) and (max-width: 1180px) {
+  .gm-header > div { gap: 8px 12px !important; }
+  .gm-header > div > a:first-child { order: 1; margin-right: auto; }
+  .gm-header > div > a[href*="squareup"] { order: 2; }
   .gm-menu {
     order: 3; display: flex; align-items: center; justify-content: center;
     width: 46px; height: 46px; padding: 0; background: transparent;
@@ -23,6 +34,12 @@ img, video { max-width: 100%; }
   .gm-header.open .gm-nav { display: flex !important; }
   .gm-nav a { font-size: 19px; padding: 13px 0 !important; border-bottom: 1px solid #1B405D; text-decoration: none !important; }
   .gm-nav a:last-child { border-bottom: 0; }
+}
+/* Full desktop: keep the nav on one line */
+@media (min-width: 1181px) {
+  .gm-header > div { flex-wrap: nowrap !important; }
+  .gm-nav { flex-wrap: nowrap !important; white-space: nowrap; }
+  .gm-header > div > a[href*="squareup"] { white-space: nowrap; }
 }
 
 /* Back-to-top button: fades in near the bottom of the page */
