@@ -1,0 +1,44 @@
+/* Golf Monkey redesign preview — shared styles layered over each page's inline styles. */
+html { scroll-behavior: smooth; }
+body { margin: 0; -webkit-text-size-adjust: 100%; }
+img, video { max-width: 100%; }
+:focus-visible { outline: 3px solid #F0A9CF; outline-offset: 2px; }
+
+/* Mobile menu button (hidden on desktop) */
+.gm-menu { display: none; }
+
+@media (max-width: 900px) {
+  .gm-header > div { padding: 8px 20px !important; gap: 8px 10px !important; }
+  .gm-header > div > a:first-child { order: 1; font-size: 26px !important; margin-right: auto; }
+  .gm-header > div > a[href*="squareup"] { order: 2; padding: 12px 14px !important; font-size: 15px !important; }
+  .gm-menu {
+    order: 3; display: flex; align-items: center; justify-content: center;
+    width: 46px; height: 46px; padding: 0; background: transparent;
+    border: 2px solid #1B405D; border-radius: 3px; cursor: pointer;
+  }
+  .gm-nav {
+    order: 4; display: none !important; flex: 1 1 100% !important;
+    flex-direction: column; gap: 0 !important; border-top: 1px solid #1B405D; padding-bottom: 8px;
+  }
+  .gm-header.open .gm-nav { display: flex !important; }
+  .gm-nav a { font-size: 19px; padding: 13px 0 !important; border-bottom: 1px solid #1B405D; text-decoration: none !important; }
+  .gm-nav a:last-child { border-bottom: 0; }
+}
+
+/* Back-to-top button: fades in near the bottom of the page */
+.gm-top {
+  position: fixed; right: 16px; bottom: 16px; z-index: 50;
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #C52E83; color: #FFFFFF; text-decoration: none;
+  box-shadow: 0 6px 20px rgba(11, 31, 51, 0.35);
+  opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.gm-top:hover { background: #AE246D; color: #FFFFFF; }
+.gm-top.show { opacity: 1; transform: none; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .gm-top { transition: none; }
+}
