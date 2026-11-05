@@ -3,7 +3,7 @@
 //   /golfmonkeyredesign (pages, scripts, styles)
 //   /newworks (draft of the redesigned works page, served by the SPA)
 // Runs on Vercel's edge before any static file is served.
-import { next } from '@vercel/functions';
+import { next, rewrite } from '@vercel/functions';
 
 // Helpers are inlined (no local imports) so Vercel's Node ESM
 // runtime doesn't need to resolve extra modules.
@@ -14,6 +14,7 @@ type Site = {
   cookie: string;
   salt: string;
   api?: string[]; // API routes that share this site's password
+  spa?: boolean; // served by the React app: rewrite to /index.html once unlocked
   unlockPage: (unlockPath: string, returnTo: string, wrong: boolean) => string;
 };
 
@@ -41,6 +42,7 @@ const SITES: Site[] = [
     envVar: 'NEWWORKS_PASSWORD',
     cookie: 'nw_access',
     salt: 'new-works',
+    spa: true,
     unlockPage: newWorksUnlockPage,
   },
 ];
@@ -102,6 +104,8 @@ export default async function middleware(request: Request) {
     if (url.pathname === unlockPath) {
       return Response.redirect(new URL(site.base, url), 303);
     }
+    // No file exists at an SPA route, so hand the request straight to the app shell.
+    if (site.spa) return rewrite(new URL('/index.html', url));
     return next();
   }
 
