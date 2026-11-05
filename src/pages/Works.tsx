@@ -1,334 +1,174 @@
-import { ArrowUpRight, Plus } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { WavelinesSection } from '../components/WavelinesSection';
-import { useTheme } from '../contexts/ThemeContext';
 
-interface Work {
+interface Project {
   id: string;
   title: string;
-  role: string; // one-line: what you did
-  year: string;
+  url: string;
   description: string;
   tech: string[];
-  url?: string;
-  linkLabel?: string;
+  year: string;
 }
 
-interface Group {
-  id: string;
-  label: string;
-  works: Work[];
-}
-
-// TODO(christian): confirm years, tech + copy marked "confirm" before shipping.
-const groups: Group[] = [
+const projects: Project[] = [
   {
-    id: 'clients',
-    label: 'client work',
-    works: [
-      {
-        id: 'advanced-power-wash',
-        title: 'advanced power wash',
-        role: 'site, ongoing care + front-end redesign',
-        year: '2026',
-        description:
-          'exterior cleaning company in myrtle beach. i run the site end to end and expanded it for their new holiday lighting service. now rebuilding the front end so it feels hand-made, not generated.',
-        tech: ['design', 'development', 'hosting'],
-        url: 'https://advancedpowerwashmb.com/',
-      },
-      {
-        id: 'project-smashburger',
-        title: 'project smashburger',
-        role: 'site, online ordering + truck booking',
-        year: '2026',
-        description:
-          'charleston smashburger food truck. built the original site with online ordering, now moving it off squarespace to a self-hosted build with a "book the truck" flow and custom form backend.',
-        tech: ['design', 'html/css/js', 'vercel functions'],
-        url: 'https://projectsmashburger.com/',
-      },
-      {
-        id: 'golf-monkey',
-        title: 'golf monkey',
-        role: 'site + redesign',
-        year: '—', // confirm
-        description:
-          'golf media brand: tour, podcast, shop, lessons and more. built the original site and am redesigning it so each part of the brand gets its own page.',
-        tech: ['design', 'development'],
-        url: 'https://golfmonkeysc.com/',
-      },
-      {
-        id: 'music-room-chs',
-        title: 'music room chs',
-        role: 'site',
-        year: '2024',
-        description:
-          'an online hub for the charleston music scene: local venues, events and artist spotlights.',
-        tech: ['react', 'typescript', 'tailwind css', 'vite'],
-        url: 'https://www.musicroomchs.com/',
-      },
-      {
-        id: 'madilyn-gibson',
-        title: 'madilyn gibson',
-        role: 'portfolio site',
-        year: '2024',
-        description:
-          'a clean, minimal portfolio for photography and creative work.',
-        tech: ['react', 'typescript', 'tailwind css'],
-        url: 'https://madilyngibson.com/',
-      },
-      {
-        id: 'tim-gabrielson',
-        title: 'tim gabrielson',
-        role: 'site', // confirm scope
-        year: '—', // confirm
-        description:
-          'comedian, magician and keynote speaker.', // confirm: what you built
-        tech: ['design', 'development'],
-        // url: 'https://…', // confirm
-      },
-    ],
+    id: 'music-room-chs',
+    title: 'music room chs',
+    url: 'https://www.musicroomchs.com/',
+    description: 'a vibrant online hub for the charleston music scene, featuring local venues, events, and artist spotlights.',
+    tech: ['react', 'typescript', 'tailwind css', 'vite'],
+    year: '2024'
   },
   {
-    id: 'product',
-    label: 'product · ezhomesearch',
-    works: [
-      {
-        id: 'ez-design-system',
-        title: 'ez design system',
-        role: 'shared components for web + mobile',
-        year: '2026',
-        description:
-          'design tokens and foundational components (buttons, surfaces, forms) shared by the ezhomesearch website and app, with storybook previews and visual diffs on every pr.',
-        tech: ['react', 'storybook', 'chromatic', 'design tokens'],
-      },
-      {
-        id: 'facebook-catalog',
-        title: 'meta listings catalog',
-        role: 'integration',
-        year: '2026',
-        description:
-          'pipes real estate listings into meta ad catalogs so they can run as home-listing ads.',
-        tech: ['rails 7', 'postgresql', 'graph api'],
-      },
-    ],
-  },
-  {
-    id: 'builds',
-    label: 'personal builds',
-    works: [
-      {
-        id: 'odysseus',
-        title: 'odysseus',
-        role: 'self-hosted ai workspace',
-        year: '2026',
-        description:
-          'a private ai workspace running local models on my own machine. no cloud, no data leaving the desk.',
-        tech: ['ollama', 'local llms'],
-      },
-      {
-        id: 'fitness-aggregator',
-        title: 'fitness aggregator',
-        role: 'cli tool',
-        year: '2026',
-        description:
-          'pulls fitbit and whoop data into one place from the terminal. built in versioned passes.',
-        tech: ['python', 'typer', 'rich', 'httpx'],
-      },
-      {
-        id: 'album-ranker',
-        title: 'album ranker',
-        role: 'interactive toy',
-        year: '2026',
-        description:
-          'rank a discography head to head, keyboard-first.',
-        tech: ['html', 'css', 'javascript'],
-      },
-    ],
-  },
-  {
-    id: 'sound-image',
-    label: 'sound + image',
-    works: [
-      {
-        id: 'music',
-        title: 'instrumental album',
-        role: 'house / electronic',
-        year: '2026',
-        description:
-          'a finished instrumental record produced in logic pro. looking for vocalists.',
-        tech: ['logic pro'],
-      },
-      {
-        id: 'photo-video',
-        title: 'photo + video',
-        role: 'ongoing',
-        year: 'now',
-        description: 'photography, videography and the occasional dj set.',
-        tech: ['photo', 'video', 'dj'],
-        url: 'https://www.instagram.com/scg_2/',
-        linkLabel: 'see instagram',
-      },
-    ],
-  },
+    id: 'madilyn-gibson',
+    title: 'madilyn gibson',
+    url: 'https://madilyngibson.com/',
+    description: 'a clean, modern portfolio showcasing photography and creative work with an elegant minimalist design.',
+    tech: ['react', 'typescript', 'tailwind css'],
+    year: '2024'
+  }
 ];
 
-const total = groups.reduce((n, g) => n + g.works.length, 0);
-
-function WorkRow({
-  work,
-  index,
-  open,
-  onToggle,
-  isDark,
-}: {
-  work: Work;
-  index: number;
-  open: boolean;
-  onToggle: () => void;
-  isDark: boolean;
-}) {
-  const fg = isDark ? 'text-white' : 'text-black';
-  const line = isDark ? 'border-white/15' : 'border-black/15';
-  const muted = isDark ? 'text-white/50' : 'text-black/50';
-  const chip = isDark ? 'bg-white/10' : 'bg-black/5';
-  const panelId = `work-${work.id}`;
-
+function ProjectDetail({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
-    <li className={`border-t ${line}`}>
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        aria-controls={panelId}
-        className={`group w-full grid grid-cols-[2.25rem_1fr_auto] md:grid-cols-[3rem_1fr_1fr_4rem_1.5rem] items-baseline gap-x-3 py-4 md:py-5 text-left font-mono ${fg} focus:outline-none focus-visible:ring-1 ${
-          isDark ? 'focus-visible:ring-white/50' : 'focus-visible:ring-black/50'
-        }`}
-      >
-        <span className={`text-xs ${muted} tabular-nums`}>
-          {String(index).padStart(2, '0')}
-        </span>
-        <span className="text-base md:text-xl tracking-wide transition-transform duration-200 group-hover:translate-x-1">
-          {work.title}
-        </span>
-        <span className={`hidden md:block text-sm ${muted}`}>{work.role}</span>
-        <span className={`text-xs md:text-sm ${muted} tabular-nums md:text-right`}>
-          {work.year}
-        </span>
-        <Plus
-          className={`hidden md:block w-4 h-4 justify-self-end self-center opacity-60 transition-transform duration-200 ${
-            open ? 'rotate-45' : ''
-          }`}
-          strokeWidth={1.5}
-          aria-hidden="true"
-        />
-      </button>
-
+    <div
+      className="fixed inset-0 flex items-center justify-center z-50 px-4"
+      style={{
+        backgroundColor: 'rgba(0, 0, 0, 0.45)',
+        backdropFilter: 'blur(10px)'
+      }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
       <div
-        id={panelId}
-        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-          open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-        }`}
+        className="bg-[#232323] shadow-2xl p-8 w-full max-w-[560px] mx-auto"
+        style={{
+          animation: 'modalFadeIn 250ms ease-out'
+        }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="overflow-hidden">
-          <div className="grid md:grid-cols-[3rem_1fr_1fr_4rem_1.5rem] gap-x-3 pb-6">
-            <div className="hidden md:block" />
-            <div className="pl-[calc(2.25rem+0.75rem)] md:pl-0 md:col-span-2 font-mono space-y-4">
-              <p className={`md:hidden text-xs ${muted}`}>{work.role}</p>
-              <p className={`text-sm leading-relaxed max-w-[52ch] ${fg} opacity-90`}>
-                {work.description}
+        <div className="flex flex-col space-y-4">
+          <h2 className="text-white font-mono text-2xl mb-2">{project.title}</h2>
+
+          <div className="space-y-3">
+            <div>
+              <p className="text-white opacity-60 font-mono text-xs uppercase tracking-wider mb-1">
+                year
               </p>
-              <ul className="flex flex-wrap gap-2" aria-label="tools">
-                {work.tech.map((t) => (
-                  <li key={t} className={`text-xs px-2 py-1 ${chip} ${fg} opacity-80`}>
-                    {t}
-                  </li>
+              <p className="text-white font-mono text-base">
+                {project.year}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-white opacity-60 font-mono text-xs uppercase tracking-wider mb-1">
+                about
+              </p>
+              <p className="text-white font-mono text-base leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-white opacity-60 font-mono text-xs uppercase tracking-wider mb-2">
+                tech stack
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-white font-mono text-sm px-3 py-1 bg-black bg-opacity-40"
+                  >
+                    {tech}
+                  </span>
                 ))}
-              </ul>
-              {work.url && (
-                <a
-                  href={work.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 text-sm ${fg} underline underline-offset-4 decoration-1 opacity-80 hover:opacity-100`}
-                >
-                  {work.linkLabel ?? 'visit site'}
-                  <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
-                </a>
-              )}
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white font-mono text-sm opacity-80 hover:opacity-100 transition-opacity"
+              >
+                visit site
+                <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
+              </a>
             </div>
           </div>
+
+          <button
+            onClick={onClose}
+            className="mt-6 text-white font-mono text-sm opacity-60 hover:opacity-100 transition-opacity"
+          >
+            close
+          </button>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 
 export function Works() {
-  const { isDark } = useTheme();
-  const [openId, setOpenId] = useState<string | null>(null);
-
-  const fg = isDark ? 'text-white' : 'text-black';
-  const muted = isDark ? 'text-white/50' : 'text-black/50';
-  const line = isDark ? 'border-white/15' : 'border-black/15';
-
-  let running = 0;
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <main className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
-      <div className="pt-10 pb-8 md:pt-14 md:pb-12">
+    <>
+      <div className="flex-1 grid grid-rows-[2fr_1fr]">
         <WavelinesSection />
-      </div>
 
-      <div className="w-full max-w-[880px] mx-auto px-6 pb-16 animate-fadeIn">
-        <header className={`flex items-end justify-between border-b ${line} pb-4 mb-10 font-mono`}>
-          <div>
-            <h1 className={`${fg} text-2xl md:text-4xl tracking-wide`}>works</h1>
-            <p className={`${muted} text-xs md:text-sm mt-2`}>
-              client sites, product work and things i build for fun.
-            </p>
-          </div>
-          <span className={`${muted} text-xs tabular-nums whitespace-nowrap shrink-0 pl-4`}>
-            {String(total).padStart(2, '0')} entries
-          </span>
-        </header>
+        <section className="flex items-center justify-center px-6 z-10" aria-label="selected works">
+        <div className="w-full max-w-[720px] flex flex-col gap-4">
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className="relative bg-[#232323] h-[88px] md:h-[96px] px-6 flex items-center justify-between group transition-all duration-200 hover:outline hover:outline-1 hover:outline-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50 animate-fadeIn"
+              style={{
+                boxShadow: '0 2px 8px rgba(0,0,0,0.6)',
+                animationDelay: `${index * 50}ms`
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.6)';
+              }}
+            >
+              <button
+                onClick={() => setSelectedProject(project)}
+                className="absolute inset-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50"
+                aria-label={`Open case study: ${project.title}`}
+              />
 
-        <div className="space-y-12">
-          {groups.map((group) => (
-            <section key={group.id} aria-labelledby={`g-${group.id}`}>
-              <h2
-                id={`g-${group.id}`}
-                className={`${muted} font-mono text-xs uppercase tracking-[0.2em] mb-3`}
+              <span className="text-white font-mono text-lg md:text-xl tracking-wide relative z-10 pointer-events-none">
+                {project.title}
+              </span>
+
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-20 text-white opacity-80 hover:opacity-100 transition-all duration-150 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50"
+                aria-label={`Open ${project.title} website in new tab`}
+                onClick={(e) => e.stopPropagation()}
               >
-                {group.label}
-              </h2>
-              <ul className={`border-b ${line}`}>
-                {group.works.map((work) => {
-                  running += 1;
-                  return (
-                    <WorkRow
-                      key={work.id}
-                      work={work}
-                      index={running}
-                      isDark={isDark}
-                      open={openId === work.id}
-                      onToggle={() => setOpenId(openId === work.id ? null : work.id)}
-                    />
-                  );
-                })}
-              </ul>
-            </section>
+                <ExternalLink className="w-6 h-6 md:w-7 md:h-7" strokeWidth={1.5} />
+              </a>
+            </div>
           ))}
         </div>
-
-        <footer className={`mt-16 font-mono text-sm ${muted}`}>
-          got a site that looks like a robot made it?{' '}
-          <Link to="/about" className={`${fg} underline underline-offset-4 decoration-1`}>
-            let's talk
-          </Link>
-          .
-        </footer>
+        </section>
       </div>
-    </main>
+
+      {selectedProject && (
+        <ProjectDetail
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+    </>
   );
 }

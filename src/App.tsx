@@ -5,6 +5,7 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { Home } from './pages/Home';
 import { Works } from './pages/Works';
+import { NewWorks } from './pages/NewWorks';
 import { About } from './pages/About';
 
 function AppContent() {
@@ -19,6 +20,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/works" element={<Works />} />
+        <Route path="/newworks" element={<NewWorks />} />
         <Route path="/about" element={<About />} />
       </Routes>
 
