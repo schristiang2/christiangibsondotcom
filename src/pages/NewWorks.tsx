@@ -275,24 +275,37 @@ export function NewWorks() {
   let running = 0;
 
   return (
-    <main className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
-      <div className="pt-10 pb-8 md:pt-14 md:pb-12">
-        <WavelinesSection />
+    <main className="flex-1 min-h-0 flex flex-col">
+      {/* anchored top: wave lines + page header stay put */}
+      <div className="shrink-0 pt-6 md:pt-10">
+        <div className="mx-auto w-full" style={{ maxWidth: 'min(720px, 52vh)' }}>
+          <WavelinesSection />
+        </div>
+
+        <div className="w-full max-w-[880px] mx-auto px-6 mt-4 md:mt-8 animate-fadeIn">
+          <header className={`flex items-end justify-between border-b ${line} pb-4 font-mono`}>
+            <div>
+              <h1 className={`${fg} text-2xl md:text-4xl tracking-wide`}>works</h1>
+              <p className={`${muted} text-xs md:text-sm mt-2`}>
+                client sites, product work and things i build for fun.
+              </p>
+            </div>
+            <span className={`${muted} text-xs tabular-nums whitespace-nowrap shrink-0 pl-4`}>
+              {String(total).padStart(2, '0')} entries
+            </span>
+          </header>
+        </div>
       </div>
 
-      <div className="w-full max-w-[880px] mx-auto px-6 pb-16 animate-fadeIn">
-        <header className={`flex items-end justify-between border-b ${line} pb-4 mb-10 font-mono`}>
-          <div>
-            <h1 className={`${fg} text-2xl md:text-4xl tracking-wide`}>works</h1>
-            <p className={`${muted} text-xs md:text-sm mt-2`}>
-              client sites, product work and things i build for fun.
-            </p>
-          </div>
-          <span className={`${muted} text-xs tabular-nums whitespace-nowrap shrink-0 pl-4`}>
-            {String(total).padStart(2, '0')} entries
-          </span>
-        </header>
-
+      {/* only the list scrolls */}
+      <div
+        className="works-scroll flex-1 min-h-0 overflow-y-auto overscroll-contain"
+        style={{
+          maskImage: 'linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 48px), transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 48px), transparent 100%)',
+        }}
+      >
+        <div className="w-full max-w-[880px] mx-auto px-6 pt-8 pb-16 animate-fadeIn">
         <div className="space-y-12">
           {groups.map((group) => (
             <section key={group.id} aria-labelledby={`g-${group.id}`}>
@@ -328,6 +341,7 @@ export function NewWorks() {
           </Link>
           .
         </footer>
+        </div>
       </div>
     </main>
   );

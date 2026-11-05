@@ -44,3 +44,8 @@ body {
   translate: 0 calc(var(--_height) * 0.5px);
   rotate: calc(var(--i) * 30deg);
 }
+
+.works-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 128, 0.35) transparent;
+}
