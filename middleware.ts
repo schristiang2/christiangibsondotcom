@@ -105,7 +105,7 @@ export default async function middleware(request: Request) {
       return Response.redirect(new URL(site.base, url), 303);
     }
     // No file exists at an SPA route, so hand the request straight to the app shell.
-    if (site.spa) return rewrite(new URL('/index.html', url));
+    if (site.spa) return rewrite(new URL('/', url));
     return next();
   }
 
