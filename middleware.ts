@@ -2,6 +2,7 @@
 //   /projectsmashburger (pages, images, scripts) plus its form API
 //   /golfmonkeyredesign (pages, scripts, styles)
 //   /newworks (draft of the redesigned works page, served by the SPA)
+//   /gmdashboard (The GOLFMonkey YouTube channel dashboard)
 // Runs on Vercel's edge before any static file is served.
 import { next, rewrite } from '@vercel/functions';
 
@@ -45,6 +46,13 @@ const SITES: Site[] = [
     spa: true,
     unlockPage: newWorksUnlockPage,
   },
+  {
+    base: '/gmdashboard',
+    envVar: 'GMDASHBOARD_PASSWORD',
+    cookie: 'gmd_access',
+    salt: 'gm-dashboard',
+    unlockPage: gmDashboardUnlockPage,
+  },
 ];
 
 export const config = {
@@ -56,6 +64,8 @@ export const config = {
     '/golfmonkeyredesign/:path*',
     '/newworks',
     '/newworks/:path*',
+    '/gmdashboard',
+    '/gmdashboard/:path*',
   ],
 };
 
@@ -290,6 +300,59 @@ function newWorksUnlockPage(unlockPath: string, returnTo: string, wrong: boolean
 <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
 ${wrong ? '<p class="err" role="alert">wrong password. try again.</p>' : ''}
 <button type="submit">enter</button>
+</form>
+</div>
+</main>
+</body>
+</html>`;
+}
+
+function gmDashboardUnlockPage(unlockPath: string, returnTo: string, wrong: boolean) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GOLFMonkey Dashboard — Password</title>
+<meta property="og:title" content="The GOLFMonkey — Channel Dashboard">
+<meta property="og:description" content="YouTube channel numbers for The GOLFMonkey. Password protected.">
+<meta name="theme-color" content="#0B1F33">
+<link rel="icon" type="image/svg+xml" href="/gmdashboard/img/icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/gmdashboard/img/favicon-32.png">
+<link rel="apple-touch-icon" href="/gmdashboard/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Courier+Prime:wght@700&family=Lato:wght@400;900&family=Libre+Caslon+Text:ital@1&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#0B1F33;color:#FDFCF8;font-family:Lato,'Helvetica Neue',Arial,sans-serif;color-scheme:dark}
+  main{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 20px;box-sizing:border-box}
+  .box{width:100%;max-width:420px}
+  .icon{width:76px;height:76px;border-radius:18px;display:block;box-shadow:0 0 0 1px #1B405D}
+  .eyebrow{margin:24px 0 0;font-family:'Courier Prime',ui-monospace,monospace;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#F0A9CF}
+  h1{margin:10px 0 0;font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:900;font-size:clamp(56px,15vw,88px);line-height:.86;text-transform:uppercase}
+  .tag{margin:14px 0 0;font-family:'Libre Caslon Text',Georgia,serif;font-style:italic;font-size:18px;line-height:1.4;color:#D5E2EC}
+  form{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+  label{font-weight:900;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  input{height:52px;padding:0 16px;box-sizing:border-box;border:2px solid #FDFCF8;border-radius:3px;background:transparent;color:#FDFCF8;font:inherit;font-size:16px}
+  input:focus-visible{outline:3px solid #F0A9CF;outline-offset:2px}
+  button{height:52px;padding:0 28px;border:0;border-radius:3px;background:#C52E83;color:#fff;font:inherit;font-weight:900;font-size:15px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+  button:hover{background:#AE246D}
+  .err{margin:0;color:#F0A9CF}
+</style>
+</head>
+<body>
+<main>
+<div class="box">
+<img class="icon" src="/gmdashboard/img/icon-512.png" alt="">
+<p class="eyebrow">Channel dashboard</p>
+<h1>The GOLF<br>Monkey</h1>
+<p class="tag">These numbers are for the crew only.</p>
+<form method="post" action="${unlockPath}">
+<input type="hidden" name="next" value="${esc(returnTo)}">
+<label for="pw">Password</label>
+<input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
+${wrong ? '<p class="err" role="alert">Incorrect password. Try again.</p>' : ''}
+<button type="submit">Tee off</button>
 </form>
 </div>
 </main>

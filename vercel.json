@@ -14,15 +14,28 @@
       "destination": "/golfmonkeyredesign/index.html"
     },
     {
+      "source": "/gmdashboard",
+      "destination": "/gmdashboard/index.html"
+    },
+    {
       "source": "/blog/proloded",
       "destination": "/blog/proloded/index.html"
     },
     {
-      "source": "/((?!api/|projectsmashburger|golfmonkey|blog/).*)",
+      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/).*)",
       "destination": "/"
     }
   ],
   "headers": [
+    {
+      "source": "/gmdashboard/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
     {
       "source": "/golfmonkeyredesign/(.*)",
       "headers": [
