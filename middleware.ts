@@ -16,6 +16,7 @@ type Site = {
   salt: string;
   api?: string[]; // API routes that share this site's password
   spa?: boolean; // served by the React app: rewrite to /index.html once unlocked
+  open?: string[]; // path prefixes served without the password (icons the unlock page shows)
   unlockPage: (unlockPath: string, returnTo: string, wrong: boolean) => string;
 };
 
@@ -51,6 +52,7 @@ const SITES: Site[] = [
     envVar: 'GMDASHBOARD_PASSWORD',
     cookie: 'gmd_access',
     salt: 'gm-dashboard',
+    open: ['/gmdashboard/img/'],
     unlockPage: gmDashboardUnlockPage,
   },
 ];
@@ -103,6 +105,7 @@ export default async function middleware(request: Request) {
   const url = new URL(request.url);
   const site = siteFor(url.pathname);
   if (!site) return next();
+  if ((site.open ?? []).some((p) => url.pathname.startsWith(p))) return next();
 
   const unlockPath = `${site.base}/unlock`;
 
