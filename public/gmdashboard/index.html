@@ -272,7 +272,7 @@ function hbar(el, rows, {bh = 26, gap = 12, tipTitle, tipLines} = {}) {
 function drawShorts() {
   const rows = [...DATA.shorts].sort((a, b) => b.views - a.views).map((d) => ({
     ...d, label: d.short, value: d.views, fill: d.length_s <= 41 ? C.pink : C.muted,
-    valueText: `${f.int(d.views)} · ${f.pct0(d.avg)} watched`
+    valueText: $('c-shorts').clientWidth < 480 ? `${f.int(d.views)} · ${f.pct0(d.avg)}` : `${f.int(d.views)} · ${f.pct0(d.avg)} watched`
   }));
   hbar($('c-shorts'), rows, {
     tipTitle: (d) => d.title,
