@@ -1,8 +1,21 @@
 // Project Smashburger — "Book the Trailer" popup: one question at a time,
 // choices advance automatically, review screen before sending.
 (function () {
+  // The popup markup is built here so every page can open it.
   var overlay = document.getElementById('bk-overlay');
-  if (!overlay) return;
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'bk-overlay';
+    overlay.className = 'bk-overlay';
+    overlay.hidden = true;
+    overlay.innerHTML =
+      '<div class="bk-dialog" role="dialog" aria-modal="true" aria-labelledby="bk-title">' +
+      '<div class="bk-top"><p class="bk-title" id="bk-title">Book the Trailer</p>' +
+      '<button type="button" class="bk-close" aria-label="Close"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"></path></svg></button></div>' +
+      '<div class="bk-progress" aria-hidden="true"><div class="bk-progress-bar"></div></div>' +
+      '<p class="bk-count" aria-live="polite"></p><div class="bk-stage"></div></div>';
+    document.body.appendChild(overlay);
+  }
 
   var STEPS = [
     { key: 'hoa', q: 'Is the request for a neighborhood/HOA?', type: 'choice', row: true,
@@ -304,6 +317,14 @@
   }
 
   document.querySelectorAll('[data-bk-open]').forEach(function (b) { b.addEventListener('click', open); });
+  // Every "Book the Truck" link opens the questions right where you are.
+  document.querySelectorAll('a[href="/projectsmashburger/book"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      open();
+    });
+  });
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
   document.addEventListener('keydown', function (e) {
@@ -318,5 +339,6 @@
     }
   });
 
-  if (location.hash === '#start') open();
+  // Arriving on the booking page itself (shared link, bookmark) opens the questions too.
+  if (location.hash === '#start' || /\/projectsmashburger\/book(\.html)?\/?$/.test(location.pathname)) open();
 })();
