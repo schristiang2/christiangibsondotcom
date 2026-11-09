@@ -50,7 +50,7 @@ const FIELDS: Record<string, [key: string, label: string][]> = {
 
 const REQUIRED: Record<string, string[]> = {
   booking: ['hoa', 'date', 'location', 'startTime', 'endTime', 'guests', 'payment', 'trucks',
-    'entryFee', 'name', 'email', 'phone'],
+    'entryFee', 'name'],
   contact: ['firstName', 'lastName', 'email', 'message'],
   newsletter: ['email'],
 };
@@ -71,6 +71,9 @@ export async function POST(request: Request) {
 
   const missing = REQUIRED[kind].filter((k) => !text(body[k]));
   if (missing.length) return Response.json({ error: 'Missing fields', missing }, { status: 400 });
+  if (kind === 'booking' && !text(body.email) && !text(body.phone)) {
+    return Response.json({ error: 'Missing fields', missing: ['email or phone'] }, { status: 400 });
+  }
 
   const { RESEND_API_KEY, PS_TO_EMAIL, PS_FROM_EMAIL } = process.env;
   if (!RESEND_API_KEY || !PS_TO_EMAIL || !PS_FROM_EMAIL) {
@@ -102,7 +105,7 @@ export async function POST(request: Request) {
     body: JSON.stringify({
       from: PS_FROM_EMAIL,
       to: PS_TO_EMAIL.split(',').map((s) => s.trim()),
-      reply_to: text(body.email),
+      ...(text(body.email) ? { reply_to: text(body.email) } : {}),
       subject,
       html: `<h2>${esc(subject)}</h2><table>${rows}</table>`,
     }),

@@ -24,11 +24,13 @@
     { key: 'entryFee', q: 'What is the entry fee for the event?', type: 'fields',
       quick: 'No entry fee',
       fields: [{ key: 'entryFee', label: 'Entry fee', type: 'text', placeholder: 'e.g. $10 per person' }] },
-    { key: 'contact', q: 'How can we reach you?', type: 'fields',
+    { key: 'contact', q: 'What is the best email or phone number to reach you?', type: 'fields',
+      hint: 'Add an email, a phone number, or both.',
+      needOne: ['email', 'phone'],
       fields: [
         { key: 'name', label: 'Your name', type: 'text', autocomplete: 'name' },
-        { key: 'email', label: 'Email', type: 'email', autocomplete: 'email' },
-        { key: 'phone', label: 'Phone', type: 'tel', autocomplete: 'tel' }
+        { key: 'email', label: 'Email', type: 'email', autocomplete: 'email', optional: true },
+        { key: 'phone', label: 'Phone number', type: 'tel', autocomplete: 'tel', optional: true }
       ] }
   ];
 
@@ -139,7 +141,8 @@
       var id = 'bk-f-' + f.key;
       var field = el('div', { class: 'bk-field' });
       field.appendChild(el('label', { for: id }, f.label));
-      var inp = el('input', { id: id, class: 'bk-input', type: f.type, required: 'required' });
+      var inp = el('input', { id: id, class: 'bk-input', type: f.type });
+      if (!f.optional) inp.setAttribute('required', 'required');
       if (f.autocomplete) inp.setAttribute('autocomplete', f.autocomplete);
       if (f.placeholder) inp.setAttribute('placeholder', f.placeholder);
       if (f.min != null) inp.setAttribute('min', f.min);
@@ -176,18 +179,27 @@
       for (var i = 0; i < inputs.length; i++) {
         var x = inputs[i], v = x.inp.value.trim();
         if (step.quick && !v && answers[step.key] === step.quick) continue;
+        if (x.f.optional && !v) continue;
         if (!v || !x.inp.checkValidity()) {
           err.textContent = !v ? 'Please fill in ' + x.f.label.toLowerCase() + '.' : 'Please check ' + x.f.label.toLowerCase() + '.';
           x.inp.focus();
           return;
         }
       }
+      if (step.needOne && !inputs.some(function (x) { return step.needOne.indexOf(x.f.key) > -1 && x.inp.value.trim(); })) {
+        err.textContent = 'Please add an email or phone number so we can reach you.';
+        inputs[1].inp.focus();
+        return;
+      }
       if (step.key === 'hours' && inputs[0].inp.value >= inputs[1].inp.value) {
         err.textContent = 'The end time should be after the start time.';
         inputs[1].inp.focus();
         return;
       }
-      inputs.forEach(function (x) { if (x.inp.value.trim()) answers[x.f.key] = x.inp.value.trim(); });
+      inputs.forEach(function (x) {
+        var v = x.inp.value.trim();
+        if (v) answers[x.f.key] = v; else if (x.f.optional) delete answers[x.f.key];
+      });
       advance();
     }
 
@@ -209,6 +221,7 @@
     wrap.appendChild(el('p', { class: 'bk-hint' }, 'Check your answers before sending. Tap edit to change one.'));
     var list = el('ul', { class: 'bk-review' });
     REVIEW.forEach(function (r) {
+      if ((r[0] === 'email' || r[0] === 'phone') && !answers[r[0]]) return;
       var li = el('li');
       var t = el('div', { class: 'bk-review-text' });
       t.appendChild(el('span', { class: 'bk-review-q' }, r[1]));
