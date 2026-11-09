@@ -39,21 +39,18 @@ type Payload = Record<string, string | string[] | undefined>;
 
 const FIELDS: Record<string, [key: string, label: string][]> = {
   booking: [
-    ['firstName', 'First name'], ['lastName', 'Last name'], ['email', 'Email'], ['phone', 'Phone'],
-    ['organization', 'Company / organization'], ['eventType', 'Event type'], ['guests', 'Estimated guests'],
-    ['date', 'Event date'], ['backupDate', 'Backup date'], ['startTime', 'Serving starts'],
-    ['endTime', 'Serving ends'], ['address', 'Event address'], ['access', 'Public or private'],
-    ['payment', 'Who pays'], ['menu', 'Menu interest'], ['dietary', 'Dietary needs / allergies'],
-    ['budget', 'Budget'], ['parking', 'Room to park'], ['power', 'Power on site'],
-    ['notes', 'Notes'], ['heardFrom', 'Heard about us'],
+    ['hoa', 'Neighborhood/HOA?'], ['date', 'Event date'], ['location', 'Location'],
+    ['startTime', 'Starts'], ['endTime', 'Ends'], ['guests', 'People expected'],
+    ['payment', 'Who pays'], ['trucks', 'Food trucks (not incl. dessert/coffee)'],
+    ['entryFee', 'Entry fee'], ['name', 'Name'], ['email', 'Email'], ['phone', 'Phone'],
   ],
   contact: [['firstName', 'First name'], ['lastName', 'Last name'], ['email', 'Email'], ['message', 'Message']],
   newsletter: [['email', 'Email']],
 };
 
 const REQUIRED: Record<string, string[]> = {
-  booking: ['firstName', 'lastName', 'email', 'phone', 'eventType', 'guests', 'date', 'startTime',
-    'endTime', 'address', 'access', 'payment', 'parking'],
+  booking: ['hoa', 'date', 'location', 'startTime', 'endTime', 'guests', 'payment', 'trucks',
+    'entryFee', 'name', 'email', 'phone'],
   contact: ['firstName', 'lastName', 'email', 'message'],
   newsletter: ['email'],
 };
@@ -90,10 +87,11 @@ export async function POST(request: Request) {
     })
     .join('');
 
-  const who = kind === 'newsletter' ? text(body.email) : `${text(body.firstName)} ${text(body.lastName)}`;
+  const who = kind === 'newsletter' ? text(body.email)
+    : kind === 'booking' ? text(body.name) : `${text(body.firstName)} ${text(body.lastName)}`;
   const subject =
     kind === 'booking'
-      ? `Truck booking request: ${text(body.eventType)} on ${text(body.date)} (${who})`
+      ? `Trailer booking request: ${text(body.date)} at ${text(body.location)} (${who})`
       : kind === 'contact'
         ? `Website message from ${who}`
         : `New Join the Club sign-up: ${who}`;
