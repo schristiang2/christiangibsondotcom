@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="/projectsmashburger/mobile.css?v=4">
+<link rel="stylesheet" href="/projectsmashburger/booking.css?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,125,500;0,125,700;1,125,500;1,125,700&amp;display=swap" rel="stylesheet">
 <style>
@@ -14,6 +15,7 @@ a{color:#DCDCDC}a:hover{color:#23D822}
 input,select,textarea{font:inherit}
 </style>
 <script src="/projectsmashburger/site.js?v=4" defer></script>
+<script src="/projectsmashburger/booking.js?v=2" defer></script>
 </head>
 <body class="ps-page ps-dark">
 <div style="font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-stretch: 125%; font-weight: 500; text-transform: uppercase; color: #DCDCDC; background: #000; color-scheme: dark; min-height: 100vh">
@@ -61,90 +63,26 @@ input,select,textarea{font:inherit}
 <p style="margin: 32px 0 0; font-size: 14.68px; line-height: 1.6">Rather talk it through?<br><a href="tel:+18283989739" style="color: #DCDCDC">(828) 398-9739</a><br><a href="mailto:projectsmashburger@gmail.com" style="color: #DCDCDC">projectsmashburger@gmail.com</a></p>
 </div>
 
-<form aria-label="Booking request" data-ps-form="booking" style="flex: 1 1 460px; max-width: 686px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
-
-<p style="margin: 0; font-weight: 700; font-size: 19.72px">Your info</p>
-<fieldset style="margin: 0; padding: 0; border: 0">
-<legend style="padding: 0; margin-bottom: 12px; font-size: 14.68px">Name</legend>
-<div class="ps-name-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px">
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-first" style="font-size: 11.27px">First Name <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-first" name="firstName" type="text" required="" autocomplete="given-name" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-last" style="font-size: 11.27px">Last Name <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-last" name="lastName" type="text" required="" autocomplete="family-name" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-</div>
-</fieldset>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px 10px">
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-email" style="font-size: 14.68px">Email <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-email" name="email" type="email" required="" autocomplete="email" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-phone" style="font-size: 14.68px">Phone <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-phone" name="phone" type="tel" required="" autocomplete="tel" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-org" style="font-size: 14.68px">Company / Organization</label><input class="ps-input" id="b-org" name="organization" type="text" autocomplete="organization" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-
-<p style="margin: 22px 0 0; font-weight: 700; font-size: 19.72px">The event</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px 10px">
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-type" style="font-size: 14.68px">Event type <span style="color: #9A9A9A; font-size: 10px">(required)</span></label>
-<select class="ps-input" id="b-type" name="eventType" required="" style="height: 46px; padding: 0 12px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px">
-<option value="">Select…</option><option>Wedding / rehearsal dinner</option><option>Corporate / office lunch</option><option>Birthday / private party</option><option>Church / community event</option><option>School / sports event</option><option>Brewery / festival / market</option><option>Neighborhood / HOA</option><option>Other</option>
-</select></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-guests" style="font-size: 14.68px">Estimated guests <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-guests" name="guests" type="number" min="1" required="" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-date" style="font-size: 14.68px">Event date <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-date" name="date" type="date" required="" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-alt" style="font-size: 14.68px">Backup date</label><input class="ps-input" id="b-alt" name="backupDate" type="date" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-start" style="font-size: 14.68px">Serving starts <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-start" name="startTime" type="time" required="" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-end" style="font-size: 14.68px">Serving ends <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-end" name="endTime" type="time" required="" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-addr" style="font-size: 14.68px">Event address <span style="color: #9A9A9A; font-size: 10px">(required)</span></label><input class="ps-input" id="b-addr" name="address" type="text" required="" autocomplete="street-address" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<fieldset style="margin: 0; padding: 0; border: 0">
-<legend style="padding: 0; margin-bottom: 10px; font-size: 14.68px">Public or private? <span style="color: #9A9A9A; font-size: 10px">(required)</span></legend>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14.68px">
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="radio" required name="access" value="Private – invited guests"> Private – invited guests</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="radio" name="access" value="Public – open to all"> Public – open to all</label>
-</div>
-</fieldset>
-
-<p style="margin: 22px 0 0; font-weight: 700; font-size: 19.72px">Food &amp; payment</p>
-<fieldset style="margin: 0; padding: 0; border: 0">
-<legend style="padding: 0; margin-bottom: 10px; font-size: 14.68px">Who pays? <span style="color: #9A9A9A; font-size: 10px">(required)</span></legend>
-<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14.68px">
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="radio" required name="payment" value="Host pays – guests eat free"> Host pays – guests eat free</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="radio" name="payment" value="Guests buy their own"> Guests buy their own</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="radio" name="payment" value="Host covers a set amount, guests pay after"> Host covers a set amount, guests pay after</label>
-</div>
-</fieldset>
-<fieldset style="margin: 0; padding: 0; border: 0">
-<legend style="padding: 0; margin-bottom: 10px; font-size: 14.68px">Menu items you’re interested in</legend>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4px 16px; font-size: 14.68px">
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="checkbox" name="menu" value="The Original"> The Original</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="checkbox" name="menu" value="The Oklahoma"> The Oklahoma</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="checkbox" name="menu" value="The Back Home"> The Back Home</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="checkbox" name="menu" value="Fries"> Fries</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="checkbox" name="menu" value="Tater Tots"> Tater Tots</label>
-<label style="display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer"><input type="checkbox" name="menu" value="Kids Grilled Cheese"> Kids Grilled Cheese</label>
-</div>
-</fieldset>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px 10px">
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-diet" style="font-size: 14.68px">Dietary needs / allergies</label><input class="ps-input" id="b-diet" name="dietary" type="text" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-budget" style="font-size: 14.68px">Budget</label><input class="ps-input" id="b-budget" name="budget" type="text" style="height: 46px; padding: 0 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"></div>
-</div>
-
-<p style="margin: 22px 0 0; font-weight: 700; font-size: 19.72px">Site details</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px 10px">
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-park" style="font-size: 14.68px">Room to park the truck? <span style="color: #9A9A9A; font-size: 10px">(required)</span></label>
-<select class="ps-input" id="b-park" name="parking" required="" style="height: 46px; padding: 0 12px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"><option value="">Select…</option><option>Yes – level paved spot</option><option>Yes – grass or gravel</option><option>Not sure</option></select></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-power" style="font-size: 14.68px">Power on site?</label>
-<select class="ps-input" id="b-power" name="power" style="height: 46px; padding: 0 12px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"><option value="">Select…</option><option>Yes</option><option>No – we’ll run the generator</option><option>Not sure</option></select></div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-notes" style="font-size: 14.68px">Anything else we should know?</label><textarea class="ps-input" id="b-notes" name="notes" rows="4" style="min-height: 110px; padding: 12px 16px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px; resize: vertical"></textarea></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="b-heard" style="font-size: 14.68px">How did you hear about us?</label>
-<select class="ps-input" id="b-heard" name="heardFrom" style="height: 46px; padding: 0 12px; box-sizing: border-box; border: 1px solid #6B6B6B; border-radius: 12px; background: #000; color: #DCDCDC; font-size: 15px"><option value="">Select…</option><option>Saw the truck</option><option>Instagram / Facebook</option><option>Friend or family</option><option>Church</option><option>Google</option><option>Other</option></select></div>
-
-<button type="submit" style="align-self: flex-start; margin-top: 8px; height: 50px; padding: 0 23px; border: 0; border-radius: 0; background: #DCDCDC; color: #000; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 17.2px; cursor: pointer">Send Booking Request</button>
-<p style="margin: 0; font-size: 11.27px; color: #9A9A9A">SENDING A REQUEST DOESN’T LOCK IN YOUR DATE, WE’LL CONFIRM WITH YOU VIA PHONE OR EMAIL.</p>
-</form>
-
-<div role="status" data-ps-success hidden style="flex: 1 1 460px; max-width: 686px; min-width: 0; background: #23D822; color: #000; padding: 48px 40px; text-align: center">
-<p style="margin: 0; font-weight: 700; font-size: clamp(28px, 2.8vw, 39.88px); line-height: 1.2">Request received!</p>
-<p style="margin: 16px 0 0; font-size: 14.68px; line-height: 1.6">Thanks for thinking of us. We’ll check the calendar and get back to you soon.</p>
-<button type="button" data-ps-reset style="margin-top: 28px; height: 50px; padding: 0 23px; border: 0; border-radius: 0; background: #000; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 17.2px; cursor: pointer">Send another request</button>
+<div class="bk-start">
+<h3>Book the Trailer</h3>
+<p>Answer eight quick questions about your event, one at a time. You’ll get to review everything before you send it.</p>
+<button type="button" class="bk-start-btn" data-bk-open>Start Booking Request</button>
+<p class="bk-fine">Sending a request doesn’t lock in your date, we’ll confirm with you via phone or email.</p>
 </div>
 </div>
 </section>
+
+<div id="bk-overlay" class="bk-overlay" hidden>
+<div class="bk-dialog" role="dialog" aria-modal="true" aria-labelledby="bk-title">
+<div class="bk-top">
+<p class="bk-title" id="bk-title">Book the Trailer</p>
+<button type="button" class="bk-close" aria-label="Close"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"></path></svg></button>
+</div>
+<div class="bk-progress" aria-hidden="true"><div class="bk-progress-bar"></div></div>
+<p class="bk-count" aria-live="polite"></p>
+<div class="bk-stage"></div>
+</div>
+</div>
 
 <footer class="ps-footer" style="background: #000; color: #DCDCDC; padding: 34px 29px 60px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 32px">
