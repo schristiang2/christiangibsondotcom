@@ -210,15 +210,21 @@ const groups: Group[] = [
         description:
           'golf podcast and shorts on the golfmonkey youtube channel, which i run with a friend. i handle production, the edit and the channel.',
         tech: ['video', 'audio', 'youtube'],
+        links: [
+          { label: 'watch an episode', url: 'https://youtu.be/j6v1PmJxHh4' },
+          { label: 'apple podcasts', url: 'https://podcasts.apple.com/us/podcast/the-golf-monkey-podcast/id1708462299' },
+          { label: 'spotify', url: 'https://open.spotify.com/show/4ltPF6KksyW03NIiXfkyC5' },
+        ],
       },
       {
         id: 'balls-out',
-        title: 'balls out sports podcast',
+        title: 'ballzout sports',
         role: 'production + edit',
         year: '2026',
         description:
           'sports talk podcast. i produce and edit the audio and video for the hosts.',
         tech: ['audio', 'video', 'editing'],
+        links: [{ label: 'youtube', url: 'https://www.youtube.com/@ballzoutsports' }],
       },
       {
         id: 'photo-video',
