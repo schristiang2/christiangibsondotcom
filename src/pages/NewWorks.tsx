@@ -172,6 +172,8 @@ const groups: Group[] = [
         description:
           'rank a discography head to head, keyboard-first.',
         tech: ['html', 'css', 'javascript'],
+        url: 'https://christiangibson.com/albumrank',
+        linkLabel: 'try it',
       },
     ],
   },
