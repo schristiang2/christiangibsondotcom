@@ -1,7 +1,6 @@
 // Vercel Routing Middleware — password-protects private previews:
 //   /projectsmashburger (pages, images, scripts) plus its form API
 //   /golfmonkeyredesign (pages, scripts, styles)
-//   /newworks (draft of the redesigned works page, served by the SPA)
 //   /gmdashboard (The GOLFMonkey YouTube channel dashboard)
 // Runs on Vercel's edge before any static file is served.
 import { next, rewrite } from '@vercel/functions';
@@ -40,14 +39,6 @@ const SITES: Site[] = [
     unlockPage: golfMonkeyUnlockPage,
   },
   {
-    base: '/newworks',
-    envVar: 'NEWWORKS_PASSWORD',
-    cookie: 'nw_access',
-    salt: 'new-works',
-    spa: true,
-    unlockPage: newWorksUnlockPage,
-  },
-  {
     base: '/gmdashboard',
     envVar: 'GMDASHBOARD_PASSWORD',
     cookie: 'gmd_access',
@@ -64,8 +55,6 @@ export const config = {
     '/api/projectsmashburger-form',
     '/golfmonkeyredesign',
     '/golfmonkeyredesign/:path*',
-    '/newworks',
-    '/newworks/:path*',
     '/gmdashboard',
     '/gmdashboard/:path*',
   ],
@@ -260,49 +249,6 @@ function golfMonkeyUnlockPage(unlockPath: string, returnTo: string, wrong: boole
 <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
 ${wrong ? '<p class="err" role="alert">Incorrect password. Try again.</p>' : ''}
 <button type="submit">Tee off</button>
-</form>
-</div>
-</main>
-</body>
-</html>`;
-}
-
-function newWorksUnlockPage(unlockPath: string, returnTo: string, wrong: boolean) {
-  return `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>christian gibson — works preview</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  body{margin:0;background:#000;color:#fff;font-family:'Space Mono',monospace;color-scheme:dark}
-  main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px;box-sizing:border-box}
-  .box{width:100%;max-width:400px}
-  h1{margin:0;font-weight:400;font-size:clamp(28px,6vw,40px);letter-spacing:.02em}
-  p{margin:10px 0 0;font-size:13px;color:rgba(255,255,255,.55)}
-  form{margin-top:32px;display:flex;flex-direction:column;gap:12px}
-  label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-  input{height:46px;padding:0 14px;box-sizing:border-box;border:1px solid rgba(255,255,255,.25);border-radius:0;background:transparent;color:#fff;font:inherit;font-size:15px}
-  input:focus-visible{outline:1px solid #fff;outline-offset:2px}
-  button{align-self:flex-start;height:44px;padding:0 24px;border:0;border-radius:0;background:#fff;color:#000;font:inherit;font-size:14px;cursor:pointer}
-  button:hover{opacity:.85}
-  .err{color:#ff8a80}
-</style>
-</head>
-<body>
-<main>
-<div class="box">
-<h1>works</h1>
-<p>this preview is password protected.</p>
-<form method="post" action="${unlockPath}">
-<input type="hidden" name="next" value="${esc(returnTo)}">
-<label for="pw">password</label>
-<input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
-${wrong ? '<p class="err" role="alert">wrong password. try again.</p>' : ''}
-<button type="submit">enter</button>
 </form>
 </div>
 </main>

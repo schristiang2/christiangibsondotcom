@@ -20,9 +20,9 @@ export function Navigation() {
         home
       </Link>
       <Link
-        to="/works"
+        to="/newworks"
         className={`${getTextColor()} font-mono text-sm md:text-base transition-all duration-200 hover:opacity-100 ${
-          location.pathname === '/works' ? 'opacity-100' : 'opacity-75'
+          location.pathname === '/newworks' || location.pathname === '/works' ? 'opacity-100' : 'opacity-75'
         }`}
       >
         works
