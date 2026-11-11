@@ -13,6 +13,7 @@ interface Work {
   tech: string[];
   url?: string;
   linkLabel?: string;
+  links?: { label: string; url: string }[]; // extra links, e.g. streaming services
 }
 
 interface Group {
@@ -189,6 +190,19 @@ const groups: Group[] = [
         tech: ['logic pro'],
       },
       {
+        id: 'be-honest',
+        title: 'be honest',
+        role: 'ep · cg. & micah jameson',
+        year: '2022',
+        description:
+          'a collaborative ep with micah jameson. i produced the record and co-wrote the songs.',
+        tech: ['production', 'songwriting', 'logic pro'],
+        links: [
+          { label: 'apple music', url: 'https://music.apple.com/us/album/be-honest-ep/1654811790' },
+          { label: 'spotify', url: 'https://open.spotify.com/album/2IaBGeiRPSBGFGQn8I13b0' },
+        ],
+      },
+      {
         id: 'golf-monkey-podcast',
         title: 'golf monkey podcast',
         role: 'channel + production',
@@ -292,16 +306,24 @@ function WorkRow({
                   </li>
                 ))}
               </ul>
-              {work.url && (
-                <a
-                  href={work.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 text-sm ${fg} underline underline-offset-4 decoration-1 opacity-80 hover:opacity-100`}
-                >
-                  {work.linkLabel ?? 'visit site'}
-                  <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
-                </a>
+              {(work.url || work.links) && (
+                <div className="flex flex-wrap gap-x-6 gap-y-2">
+                  {[
+                    ...(work.url ? [{ label: work.linkLabel ?? 'visit site', url: work.url }] : []),
+                    ...(work.links ?? []),
+                  ].map((l) => (
+                    <a
+                      key={l.url}
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1.5 text-sm ${fg} underline underline-offset-4 decoration-1 opacity-80 hover:opacity-100`}
+                    >
+                      {l.label}
+                      <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
+                    </a>
+                  ))}
+                </div>
               )}
             </div>
           </div>
