@@ -22,7 +22,11 @@
       "destination": "/blog/proloded/index.html"
     },
     {
-      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/).*)",
+      "source": "/albumrank",
+      "destination": "/albumrank/index.html"
+    },
+    {
+      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/|albumrank).*)",
       "destination": "/"
     }
   ],
