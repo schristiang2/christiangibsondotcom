@@ -61,7 +61,7 @@ const groups: Group[] = [
         id: 'golf-monkey',
         title: 'golf monkey',
         role: 'site + redesign',
-        year: '—', // confirm
+        year: '2026',
         description:
           'golf media brand: tour, podcast, shop, lessons and more. built the original site and am redesigning it so each part of the brand gets its own page.',
         tech: ['design', 'development'],
@@ -90,8 +90,8 @@ const groups: Group[] = [
       {
         id: 'tim-gabrielson',
         title: 'tim gabrielson',
-        role: 'site', // confirm scope
-        year: '—', // confirm
+        role: 'site',
+        year: '2023',
         description:
           'comedian, magician and keynote speaker.', // confirm: what you built
         tech: ['design', 'development'],
@@ -137,6 +137,16 @@ const groups: Group[] = [
     label: 'personal builds',
     works: [
       {
+        id: 'unslop',
+        title: 'unslop',
+        role: 'brand + pre-launch site',
+        year: '2026',
+        description:
+          'my design repair shop for ai-made sites. not anti-ai: ai just needs someone with taste. pre-launch site with an opening countdown and a waitlist for free recorded roasts.',
+        tech: ['brand', 'design', 'development'],
+        url: 'https://unslopyour.site/',
+      },
+      {
         id: 'odysseus',
         title: 'odysseus',
         role: 'self-hosted ai workspace',
@@ -167,7 +177,7 @@ const groups: Group[] = [
   },
   {
     id: 'sound-image',
-    label: 'sound + image',
+    label: 'audio + video',
     works: [
       {
         id: 'music',
@@ -177,6 +187,24 @@ const groups: Group[] = [
         description:
           'a finished instrumental record produced in logic pro. looking for vocalists.',
         tech: ['logic pro'],
+      },
+      {
+        id: 'golf-monkey-podcast',
+        title: 'golf monkey podcast',
+        role: 'channel + production',
+        year: '2026',
+        description:
+          'golf podcast and shorts on the golfmonkey youtube channel, which i run with a friend. i handle production, the edit and the channel.',
+        tech: ['video', 'audio', 'youtube'],
+      },
+      {
+        id: 'balls-out',
+        title: 'balls out sports podcast',
+        role: 'production + edit',
+        year: '2026',
+        description:
+          'sports talk podcast. i produce and edit the audio and video for the hosts.',
+        tech: ['audio', 'video', 'editing'],
       },
       {
         id: 'photo-video',
