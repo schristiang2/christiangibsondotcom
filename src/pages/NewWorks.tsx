@@ -1,7 +1,6 @@
 import { ArrowUpRight, Plus } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { WavelinesSection } from '../components/WavelinesSection';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface Work {
@@ -351,13 +350,9 @@ export function NewWorks() {
 
   return (
     <main className="flex-1 min-h-0 flex flex-col">
-      {/* anchored top: wave lines + page header stay put */}
-      <div className="shrink-0 pt-6 md:pt-10">
-        <div className="mx-auto w-full" style={{ maxWidth: 'min(720px, 40vh)' }}>
-          <WavelinesSection />
-        </div>
-
-        <div className="w-full max-w-[880px] mx-auto px-6 mt-4 md:mt-8 animate-fadeIn">
+      {/* anchored top: page header stays put */}
+      <div className="shrink-0 pt-8 md:pt-12">
+        <div className="w-full max-w-[880px] mx-auto px-6 animate-fadeIn">
           <header className={`flex items-end justify-between border-b ${line} pb-4 font-mono`}>
             <div>
               <h1 className={`${fg} text-2xl md:text-4xl tracking-wide`}>works</h1>
