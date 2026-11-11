@@ -48,6 +48,16 @@ const groups: Group[] = [
         url: 'https://projectsmashburger.com/',
       },
       {
+        id: 'lwtc',
+        title: 'living water trading co',
+        role: 'brand storefront',
+        year: '2026',
+        description:
+          'apparel brand with a playful, y2k-leaning storefront: product drops with a shopping bag, an embedded lwtc.radio player and a photo gallery.',
+        tech: ['design', 'development', 'e-commerce'],
+        url: 'https://www.lwtctrading.co/',
+      },
+      {
         id: 'golf-monkey',
         title: 'golf monkey',
         role: 'site + redesign',
@@ -93,6 +103,15 @@ const groups: Group[] = [
     id: 'product',
     label: 'product · ezhomesearch',
     works: [
+      {
+        id: 'ezhomesearch-redesign',
+        title: 'ezhomesearch redesign',
+        role: 'website redesign',
+        year: '2026',
+        description:
+          'a ground-up redesign of the ezhomesearch home search experience, built on the new shared design system so web and mobile look and feel like one product.',
+        tech: ['design', 'rails 7', 'react', 'design system'],
+      },
       {
         id: 'ez-design-system',
         title: 'ez design system',
@@ -201,22 +220,22 @@ function WorkRow({
         onClick={onToggle}
         aria-expanded={open}
         aria-controls={panelId}
-        className={`group w-full grid grid-cols-[2.25rem_1fr_auto] md:grid-cols-[3rem_1fr_1fr_4rem_1.5rem] items-baseline gap-x-3 py-4 md:py-5 text-left font-mono ${fg} focus:outline-none focus-visible:ring-1 ${
+        className={`group w-full grid grid-cols-[2.25rem_1fr_auto] min-[600px]:grid-cols-[3rem_1fr_1fr_4rem_1.5rem] items-baseline gap-x-3 py-4 min-[600px]:py-5 text-left font-mono ${fg} focus:outline-none focus-visible:ring-1 ${
           isDark ? 'focus-visible:ring-white/50' : 'focus-visible:ring-black/50'
         }`}
       >
         <span className={`text-xs ${muted} tabular-nums`}>
           {String(index).padStart(2, '0')}
         </span>
-        <span className="text-base md:text-xl tracking-wide transition-transform duration-200 group-hover:translate-x-1">
+        <span className="text-base min-[600px]:text-xl tracking-wide transition-transform duration-200 group-hover:translate-x-1">
           {work.title}
         </span>
-        <span className={`hidden md:block text-sm ${muted}`}>{work.role}</span>
-        <span className={`text-xs md:text-sm ${muted} tabular-nums md:text-right`}>
+        <span className={`hidden min-[600px]:block text-sm ${muted}`}>{work.role}</span>
+        <span className={`text-xs min-[600px]:text-sm ${muted} tabular-nums min-[600px]:text-right`}>
           {work.year}
         </span>
         <Plus
-          className={`hidden md:block w-4 h-4 justify-self-end self-center opacity-60 transition-transform duration-200 ${
+          className={`hidden min-[600px]:block w-4 h-4 justify-self-end self-center opacity-60 transition-transform duration-200 ${
             open ? 'rotate-45' : ''
           }`}
           strokeWidth={1.5}
@@ -231,10 +250,10 @@ function WorkRow({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="grid md:grid-cols-[3rem_1fr_1fr_4rem_1.5rem] gap-x-3 pb-6">
-            <div className="hidden md:block" />
-            <div className="pl-[calc(2.25rem+0.75rem)] md:pl-0 md:col-span-2 font-mono space-y-4">
-              <p className={`md:hidden text-xs ${muted}`}>{work.role}</p>
+          <div className="grid min-[600px]:grid-cols-[3rem_1fr_1fr_4rem_1.5rem] gap-x-3 pb-6">
+            <div className="hidden min-[600px]:block" />
+            <div className="pl-[calc(2.25rem+0.75rem)] min-[600px]:pl-0 min-[600px]:col-span-2 font-mono space-y-4">
+              <p className={`min-[600px]:hidden text-xs ${muted}`}>{work.role}</p>
               <p className={`text-sm leading-relaxed max-w-[52ch] ${fg} opacity-90`}>
                 {work.description}
               </p>
@@ -278,7 +297,7 @@ export function NewWorks() {
     <main className="flex-1 min-h-0 flex flex-col">
       {/* anchored top: wave lines + page header stay put */}
       <div className="shrink-0 pt-6 md:pt-10">
-        <div className="mx-auto w-full" style={{ maxWidth: 'min(720px, 52vh)' }}>
+        <div className="mx-auto w-full" style={{ maxWidth: 'min(720px, 40vh)' }}>
           <WavelinesSection />
         </div>
 
