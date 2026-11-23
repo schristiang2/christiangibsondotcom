@@ -3,6 +3,7 @@
 //   /golfmonkeyredesign (pages, scripts, styles)
 //   /gmdashboard (The GOLFMonkey YouTube channel dashboard)
 //   /burdenedhope (BurdenedHope redesign concept for the client)
+//   /briefs/burdenedhope (the BurdenedHope website brief, same password)
 // Runs on Vercel's edge before any static file is served.
 import { next, rewrite } from '@vercel/functions';
 
@@ -55,6 +56,14 @@ const SITES: Site[] = [
     open: ['/burdenedhope/images/logo-bone.png'],
     unlockPage: burdenedHopeUnlockPage,
   },
+  {
+    base: '/briefs/burdenedhope',
+    envVar: 'BURDENEDHOPE_PASSWORD',
+    cookie: 'bhbrief_access',
+    salt: 'burdenedhope-brief',
+    unlockPage: (unlockPath, returnTo, wrong) =>
+      burdenedHopeUnlockPage(unlockPath, returnTo, wrong).replace('Redesign preview', 'Website brief'),
+  },
 ];
 
 export const config = {
@@ -68,6 +77,8 @@ export const config = {
     '/gmdashboard/:path*',
     '/burdenedhope',
     '/burdenedhope/:path*',
+    '/briefs/burdenedhope',
+    '/briefs/burdenedhope/:path*',
   ],
 };
 

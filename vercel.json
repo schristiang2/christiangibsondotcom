@@ -30,7 +30,11 @@
       "destination": "/burdenedhope/index.html"
     },
     {
-      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/|albumrank|burdenedhope).*)",
+      "source": "/briefs/burdenedhope",
+      "destination": "/briefs/burdenedhope/index.html"
+    },
+    {
+      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/|albumrank|burdenedhope|briefs/).*)",
       "destination": "/"
     }
   ],
@@ -64,6 +68,15 @@
     },
     {
       "source": "/burdenedhope/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/briefs/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
