@@ -2,6 +2,7 @@
 //   /projectsmashburger (pages, images, scripts) plus its form API
 //   /golfmonkeyredesign (pages, scripts, styles)
 //   /gmdashboard (The GOLFMonkey YouTube channel dashboard)
+//   /burdenedhope (BurdenedHope redesign concept for the client)
 // Runs on Vercel's edge before any static file is served.
 import { next, rewrite } from '@vercel/functions';
 
@@ -46,6 +47,14 @@ const SITES: Site[] = [
     open: ['/gmdashboard/img/'],
     unlockPage: gmDashboardUnlockPage,
   },
+  {
+    base: '/burdenedhope',
+    envVar: 'BURDENEDHOPE_PASSWORD',
+    cookie: 'bh_access',
+    salt: 'burdenedhope-concept',
+    open: ['/burdenedhope/images/logo-bone.png'],
+    unlockPage: burdenedHopeUnlockPage,
+  },
 ];
 
 export const config = {
@@ -57,6 +66,8 @@ export const config = {
     '/golfmonkeyredesign/:path*',
     '/gmdashboard',
     '/gmdashboard/:path*',
+    '/burdenedhope',
+    '/burdenedhope/:path*',
   ],
 };
 
@@ -302,6 +313,58 @@ function gmDashboardUnlockPage(unlockPath: string, returnTo: string, wrong: bool
 <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
 ${wrong ? '<p class="err" role="alert">Incorrect password. Try again.</p>' : ''}
 <button type="submit">Tee off</button>
+</form>
+</div>
+</main>
+</body>
+</html>`;
+}
+
+function burdenedHopeUnlockPage(unlockPath: string, returnTo: string, wrong: boolean) {
+  const desc = 'A preview of the BurdenedHope website redesign. Prepared by Christian Gibson.';
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BurdenedHope Redesign — Password</title>
+<meta name="description" content="${desc}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BurdenedHope — Redesign Preview">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="https://christiangibson.com/burdenedhope">
+<meta name="theme-color" content="#121110">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#121110;color:#ECE5D8;font-family:'EB Garamond',Georgia,serif;color-scheme:dark}
+  main{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 20px;box-sizing:border-box}
+  .box{width:100%;max-width:420px}
+  .logo{display:block;width:240px;max-width:80%;height:auto}
+  .eyebrow{margin:28px 0 0;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#C9B48A}
+  .tag{margin:10px 0 0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:26px;line-height:1.25}
+  form{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+  label{font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  input{height:52px;padding:0 16px;box-sizing:border-box;border:1px solid #ECE5D8;border-radius:0;background:transparent;color:#ECE5D8;font:inherit;font-size:16px}
+  input:focus-visible{outline:2px solid #C9B48A;outline-offset:2px}
+  button{align-self:flex-start;height:52px;padding:0 28px;border:0;border-radius:0;background:#ECE5D8;color:#121110;font:inherit;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+  button:hover{background:#C9B48A}
+  .err{margin:0;color:#E8B4A0}
+</style>
+</head>
+<body>
+<main>
+<div class="box">
+<img class="logo" src="/burdenedhope/images/logo-bone.png" alt="BurdenedHope">
+<p class="eyebrow">Redesign preview</p>
+<p class="tag">This preview is password protected.</p>
+<form method="post" action="${unlockPath}">
+<input type="hidden" name="next" value="${esc(returnTo)}">
+<label for="pw">Password</label>
+<input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
+${wrong ? '<p class="err" role="alert">Incorrect password. Try again.</p>' : ''}
+<button type="submit">Enter</button>
 </form>
 </div>
 </main>

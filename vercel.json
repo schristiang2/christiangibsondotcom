@@ -26,7 +26,11 @@
       "destination": "/albumrank/index.html"
     },
     {
-      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/|albumrank).*)",
+      "source": "/burdenedhope",
+      "destination": "/burdenedhope/index.html"
+    },
+    {
+      "source": "/((?!api/|projectsmashburger|golfmonkey|gmdashboard|blog/|albumrank|burdenedhope).*)",
       "destination": "/"
     }
   ],
@@ -51,6 +55,15 @@
     },
     {
       "source": "/projectsmashburger/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/burdenedhope/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

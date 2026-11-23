@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="BurdenedHope website redesign concept by Christian Gibson.">
+<title>The Gospel — BurdenedHope</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&amp;family=Cormorant+Garamond:wght@300;400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"><style>
+body{margin:0;background:#0B0A09}
+a{color:inherit}a:hover{opacity:.8}
+html{scroll-behavior:smooth}
+.gs-wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+.gs-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+.gs-verses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}
+.gs-toc{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px}
+@media (max-width:960px){.gs-split{grid-template-columns:minmax(0,1fr);gap:32px}.gs-toc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.gs-verses{grid-template-columns:minmax(0,1fr)}}
+
+/* Load-in: fast, once */
+@keyframes gs-rise{from{transform:translateY(108%)}to{transform:none}}
+@keyframes gs-fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes gs-open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.gs-mask{display:block;overflow:hidden;padding-bottom:.06em}
+.gs-mask>span{display:inline-block;animation:gs-rise .55s cubic-bezier(.2,.8,.2,1) both}
+.gs-d1{animation-delay:.07s!important}.gs-d2{animation-delay:.14s!important}.gs-d3{animation-delay:.21s!important}.gs-d4{animation-delay:.28s!important}
+.gs-in{animation:gs-fade .45s cubic-bezier(.2,.8,.2,1) .25s both}
+.gs-toc>a{animation:gs-fade .4s cubic-bezier(.2,.8,.2,1) both}
+.gs-toc>a:nth-child(1){animation-delay:.30s}.gs-toc>a:nth-child(2){animation-delay:.34s}.gs-toc>a:nth-child(3){animation-delay:.38s}.gs-toc>a:nth-child(4){animation-delay:.42s}.gs-toc>a:nth-child(5){animation-delay:.46s}.gs-toc>a:nth-child(6){animation-delay:.50s}.gs-toc>a:nth-child(7){animation-delay:.54s}
+.gs-toc>a:hover{background:#1C1A18}
+.gs-open{animation:gs-open .22s ease-out both}
+.gs-chev{transition:transform .2s ease}
+.gs-toggle[aria-expanded="true"] .gs-chev{transform:rotate(180deg)}
+.gs-toggle:hover{opacity:.75}
+.gs-toggle:focus-visible,a:focus-visible{outline:2px solid #C9B48A;outline-offset:3px}
+
+/* Scroll-driven: tied to short scroll ranges so they finish before you're reading */
+@supports (animation-timeline: view()){
+@keyframes gs-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes gs-sx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes gs-sy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes gs-short{from{transform:scaleX(0)}to{transform:scaleX(.72)}}
+@keyframes gs-light{from{clip-path:circle(0% at 50% 42%)}to{clip-path:circle(90% at 50% 42%)}}
+@keyframes gs-turn{from{transform:rotate(0)}to{transform:rotate(180deg)}}
+@keyframes gs-sink{from{letter-spacing:.12em;opacity:.2}to{letter-spacing:-.01em;opacity:1}}
+.gs-reveal{animation:gs-fade linear both;animation-timeline:view();animation-range:entry 0% entry 30%}
+.gs-wipe{animation:gs-wipe linear both;animation-timeline:view();animation-range:entry 10% cover 30%}
+.gs-rule{transform-origin:left;animation:gs-sx linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+.gs-shortline{transform-origin:left;animation:gs-short linear both;animation-timeline:view();animation-range:entry 30% cover 45%}
+.gs-light{animation:gs-light linear both;animation-timeline:view();animation-range:entry 0% cover 35%}
+.gs-crossV{transform-origin:top;animation:gs-sy linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+.gs-crossH{transform-origin:center;animation:gs-sx linear both;animation-timeline:view();animation-range:entry 40% cover 38%}
+.gs-strike{transform-origin:left;animation:gs-sx linear both;animation-timeline:view();animation-range:entry 60% cover 45%}
+.gs-turn{animation:gs-turn linear both;animation-timeline:view();animation-range:entry 40% cover 45%}
+.gs-sink{animation:gs-sink linear both;animation-timeline:view();animation-range:entry 0% cover 35%}
+.gs-progress{transform-origin:left;animation:gs-sx linear both;animation-timeline:scroll(root)}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+[id]{scroll-margin-top:130px}
+</style></head>
+<body>
+
+
+<div style="font-family: 'EB Garamond', Garamond, Georgia, serif; background: #0B0A09; color: #ECE5D8">
+
+<header style="position: sticky; top: 0; z-index: 10; background: #0B0A09; border-bottom: 1px solid #24211E">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px 8px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px">
+<div style="justify-self: start; display: flex; align-items: center"></div>
+<a href="/burdenedhope" aria-label="BurdenedHope home" style="display: flex; justify-content: center"><img src="/burdenedhope/images/logo-bone.png" alt="BurdenedHope" style="height: 44px; width: auto; display: block"></a>
+<div style="justify-self: end; display: flex; align-items: center"><button aria-label="Cart, 0 items" style="background: none; border: 0; color: inherit; min-width: 44px; height: 44px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; justify-content: center; font: inherit; font-size: 13px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></button></div>
+</div>
+<nav aria-label="Primary" style="display: flex; justify-content: center; flex-wrap: wrap; column-gap: 36px; row-gap: 0; padding: 0 24px 6px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase">
+<a href="/burdenedhope/collection" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Shop</a>
+<a href="/burdenedhope/collection" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">The Series</a>
+<a href="/burdenedhope#story" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Our Story</a>
+<a href="/burdenedhope/gospel" aria-current="page" style="text-decoration: underline; text-underline-offset: 6px; min-height: 44px; display: inline-flex; align-items: center">The Gospel</a>
+</nav>
+<div aria-hidden="true" class="gs-progress" style="height: 2px; background: #C9B48A"></div>
+</header>
+
+
+<section aria-label="The Gospel" style="min-height: 92vh; display: flex; flex-direction: column; justify-content: flex-end; border-bottom: 1px solid #24211E">
+<div class="gs-wrap" style="padding-top: 120px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 40px">
+<p class="gs-in" style="margin: 0; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; color: #C9B48A">The good news · in seven parts</p>
+<h1 style="margin: 0; font-weight: 400; line-height: .86">
+<span class="gs-mask"><span style="font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: clamp(65.6px, 11.5vw, 177.1px); font-weight: 700; letter-spacing: 0">The</span></span>
+<span class="gs-mask"><span class="gs-d1" style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(96px, 17vw, 260px)">Gospel</span></span>
+</h1>
+<p class="gs-in" style="margin: 0; max-width: 620px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.3; color: #D6CEC1">The good news of Jesus Christ, and the hope found in Him alone.</p>
+<nav aria-label="Chapters" class="gs-toc" style="background: #24211E; border: 1px solid #24211E; margin-top: 24px">
+<a href="#god" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #8C8478">01</span><span style="font-size: 14px; font-weight: 500">God</span></a>
+<a href="#sin" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #8C8478">02</span><span style="font-size: 14px; font-weight: 500">Sin</span></a>
+<a href="#judgment" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #8C8478">03</span><span style="font-size: 14px; font-weight: 500">Judgment</span></a>
+<a href="#christ" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #8C8478">04</span><span style="font-size: 14px; font-weight: 500">Christ</span></a>
+<a href="#cross" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #8C8478">05</span><span style="font-size: 14px; font-weight: 500">The Cross</span></a>
+<a href="#response" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #8C8478">06</span><span style="font-size: 14px; font-weight: 500">Response</span></a>
+<a href="#hope" style="background: #0B0A09; padding: 18px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 44px"><span style="font-size: 11px; letter-spacing: .16em; color: #C9B48A">07</span><span style="font-size: 14px; font-weight: 500">Hope</span></a>
+</nav>
+</div>
+</section>
+
+
+<section id="god" aria-labelledby="h-god" style="background: #ECE5D8; color: #121110">
+<div class="gs-wrap" style="padding-top: 140px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 56px">
+<div class="gs-split">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #5C564D; font-weight: 600">01 — The Beginning</span>
+<h2 id="h-god" class="gs-wipe" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(96px, 12vw, 184px); line-height: .9">God</h2>
+</div>
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 24px; padding-top: 24px">
+<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 2.5vw, 34px); line-height: 1.3">The Gospel begins with God. He created all things and all people for His glory.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #3B3731">He is holy, righteous, and good, and everything belongs to Him. We were created to know Him, worship Him, and live in fellowship with Him.</p>
+</div>
+</div>
+<div aria-hidden="true" class="gs-rule" style="height: 1px; background: #121110"></div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<button type="button" class="gs-toggle" data-toggle="god" aria-expanded="false" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #121110; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="god" hidden="">
+<div class="gs-verses gs-open" style="background: #CFC6B7">
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">In the beginning God created the heaven and the earth.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Genesis 1:1 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">The earth is the LORD’s, and the fulness thereof; the world, and they that dwell therein.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Psalm 24:1 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Holy, holy, holy, is the LORD of hosts: the whole earth is full of his glory.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Isaiah 6:3 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Thou art worthy, O Lord, to receive glory and honour and power: for thou hast created all things, and for thy pleasure they are and were created.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Revelation 4:11 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="sin" aria-labelledby="h-sin" style="background: #1C1A18; color: #ECE5D8">
+<div class="gs-wrap" style="padding-top: 140px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 56px">
+<div class="gs-split">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #9A9184; font-weight: 600">02 — The Problem</span>
+<h2 id="h-sin" class="gs-wipe" style="margin: 0; font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: clamp(90.2px, 11.5vw, 172.2px); line-height: .88; font-weight: 700; letter-spacing: 0">Sin</h2>
+</div>
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 24px; padding-top: 24px">
+<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 2.5vw, 34px); line-height: 1.3">Sin is not merely the wrong things we do. It is rebellion against the holy God who made us.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #C9C0B3">God created mankind to know Him and live according to His will, but humanity rebelled against Him. Every person has sinned and falls short of His glory, and sin separates us from God.</p>
+</div>
+</div>
+<figure aria-label="Illustration: a line that falls short of the glory of God" style="margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px 0">
+<div style="position: relative; height: 40px; display: flex; align-items: center">
+<div aria-hidden="true" class="gs-shortline" style="height: 3px; width: 100%; background: #ECE5D8"></div>
+<div aria-hidden="true" style="position: absolute; right: 0; top: 0; bottom: 0; width: 3px; background: #C9B48A"></div>
+</div>
+<figcaption style="display: flex; justify-content: space-between; gap: 16px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #9A9184"><span>All have sinned</span><span style="color: #C9B48A">The glory of God</span></figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<button type="button" class="gs-toggle" data-toggle="sin" aria-expanded="false" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #ECE5D8; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="sin" hidden="">
+<div class="gs-verses gs-open" style="background: #36322E">
+
+<figure style="margin: 0; background: #1C1A18; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">For all have sinned, and come short of the glory of God.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Romans 3:23 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #1C1A18; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Romans 6:23 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #1C1A18; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">For thou art not a God that hath pleasure in wickedness: neither shall evil dwell with thee.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Psalm 5:4 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #1C1A18; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Whosoever committeth sin transgresseth also the law: for sin is the transgression of the law.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">1 John 3:4 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="judgment" aria-labelledby="h-judgment" style="background: #0B0A09; color: #ECE5D8">
+<div class="gs-wrap" style="padding-top: 160px; padding-bottom: 140px; display: flex; flex-direction: column; gap: 56px">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #9A9184; font-weight: 600">03 — The Consequence</span>
+<h2 id="h-judgment" class="gs-sink" style="margin: 0; font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: clamp(65.6px, 10.7vw, 164px); line-height: .88; font-weight: 700; letter-spacing: 0">Judgment</h2>
+</div>
+<div class="gs-split">
+<p class="gs-reveal" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 2.5vw, 34px); line-height: 1.3">Because God is holy and just, sin cannot simply be ignored.</p>
+<p class="gs-reveal" style="margin: 0; font-size: 17px; line-height: 1.75; color: #C9C0B3">Every person will stand before God and give an account. His judgment is righteous, and the consequence of sin is death and separation from Him.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<button type="button" class="gs-toggle" data-toggle="judgment" aria-expanded="false" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #ECE5D8; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="judgment" hidden="">
+<div class="gs-verses gs-open" style="background: #24211E">
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">And as it is appointed unto men once to die, but after this the judgment.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Hebrews 9:27 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">But after thy hardness and impenitent heart treasurest up unto thyself wrath against the day of wrath and revelation of the righteous judgment of God; who will render to every man according to his deeds.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Romans 2:5–6 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">And I saw the dead, small and great, stand before God; and the books were opened: and another book was opened, which is the book of life: and the dead were judged out of those things which were written in the books, according to their works.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Revelation 20:12 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">And these shall go away into everlasting punishment: but the righteous into life eternal.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Matthew 25:46 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="christ" aria-labelledby="h-christ" style="position: relative; background: #0B0A09; overflow: hidden">
+<div aria-hidden="true" class="gs-light" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: #F6F2EA"></div>
+<div class="gs-wrap" style="position: relative; color: #121110; padding-top: 180px; padding-bottom: 140px; display: flex; flex-direction: column; gap: 56px; align-items: center; text-align: center">
+<p class="gs-reveal" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 3vw, 44px)">But God did not leave us without hope.</p>
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px; align-items: center">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #5C564D; font-weight: 600">04 — The Answer</span>
+<h2 id="h-christ" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: clamp(110px, 15vw, 230px); line-height: .88">Christ</h2>
+</div>
+<p class="gs-reveal" style="margin: 0; max-width: 720px; font-size: 18px; line-height: 1.75; color: #3B3731">Jesus Christ, the eternal Son of God, took on flesh and lived the life we could not live: perfectly obedient and without sin. He came to save sinners and to reconcile us to God.</p>
+<div style="display: flex; flex-direction: column; gap: 20px; align-self: stretch; text-align: left">
+<button type="button" class="gs-toggle" data-toggle="christ" aria-expanded="false" style="align-self: center; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #121110; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="christ" hidden="">
+<div class="gs-verses gs-open" style="background: #D6CDBE">
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">In the beginning was the Word, and the Word was with God, and the Word was God.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">John 1:1 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Matthew 1:23 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">And ye know that he was manifested to take away our sins; and in him is no sin.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">1 John 3:5 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">For the Son of man is come to seek and to save that which was lost.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Luke 19:10 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="cross" aria-labelledby="h-cross" style="background: #F6F2EA; color: #121110; border-top: 1px solid #D6CDBE">
+<div class="gs-wrap" style="padding-top: 140px; padding-bottom: 140px; display: flex; flex-direction: column; gap: 64px">
+<div class="gs-split" style="align-items: center">
+<div role="img" aria-label="A cross drawn in two strokes" style="position: relative; height: 520px; max-width: 360px; width: 100%; margin: 0 auto">
+<div class="gs-crossV" style="position: absolute; left: 50%; top: 0; bottom: 0; width: 14px; margin-left: -7px; background: #121110"></div>
+<div class="gs-crossH" style="position: absolute; left: 6%; right: 6%; top: 26%; height: 14px; background: #121110"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #5C564D; font-weight: 600">05 — The Victory</span>
+<h2 id="h-cross" style="margin: 0; font-weight: 400; line-height: .92">
+<span style="display: block; font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: clamp(45.9px, 5.7vw, 85.3px); font-weight: 700; letter-spacing: 0">The Cross</span>
+<span style="display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(56px, 7vw, 104px)">&amp; Resurrection</span>
+</h2>
+</div>
+<p class="gs-reveal" style="margin: 0; font-size: 17px; line-height: 1.75; color: #3B3731">At the cross, Jesus willingly gave His life for sinners, bearing the judgment our sin deserves. He died and was buried. On the third day, He rose bodily from the grave, conquering death and securing salvation for all who belong to Him.</p>
+<p class="gs-reveal" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 3vw, 42px); line-height: 1.2"><span style="position: relative; display: inline-block">Death<span aria-hidden="true" class="gs-strike" style="position: absolute; left: -4%; right: -4%; top: 55%; height: 3px; background: #121110"></span></span> could not hold Him.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<button type="button" class="gs-toggle" data-toggle="cross" aria-expanded="false" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #121110; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="cross" hidden="">
+<div class="gs-verses gs-open" style="background: #D6CDBE">
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Romans 5:8 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">1 Peter 2:24 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Christ died for our sins according to the scriptures; and that he was buried, and that he rose again the third day according to the scriptures.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">1 Corinthians 15:3–4 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #F6F2EA; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Knowing that Christ being raised from the dead dieth no more; death hath no more dominion over him.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Romans 6:9 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="response" aria-labelledby="h-response" style="background: #ECE5D8; color: #121110">
+<div class="gs-wrap" style="padding-top: 140px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 56px">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #5C564D; font-weight: 600">06 — The Response</span>
+<h2 id="h-response" style="margin: 0; font-weight: 400; line-height: .92"><span style="font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: clamp(45.9px, 5.7vw, 85.3px); font-weight: 700; letter-spacing: 0">Repentance </span><span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(60px, 7.4vw, 110px)">&amp; Faith</span></h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: #CFC6B7">
+<div class="gs-reveal" style="background: #ECE5D8; padding: 40px; display: flex; flex-direction: column; gap: 20px">
+<svg class="gs-turn" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#121110" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+<span style="font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: 32.8px; font-weight: 700; letter-spacing: 0">Turn</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3B3731">Repentance is turning from sin toward God.</p>
+</div>
+<div class="gs-reveal" style="background: #ECE5D8; padding: 40px; display: flex; flex-direction: column; gap: 20px">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#121110" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18"></path><path d="M6 8h12"></path></svg>
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 44px; font-weight: 400">Trust</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3B3731">Faith is trusting in Christ alone for salvation, not in our own works, goodness, or ability to make ourselves right with God.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<button type="button" class="gs-toggle" data-toggle="response" aria-expanded="false" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #121110; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="response" hidden="">
+<div class="gs-verses gs-open" style="background: #CFC6B7">
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">The time is fulfilled, and the kingdom of God is at hand: repent ye, and believe the gospel.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Mark 1:15 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Acts 2:38 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: not of works, lest any man should boast.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Ephesians 2:8–9 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #ECE5D8; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5C564D">Romans 10:9 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="hope" aria-labelledby="h-hope" style="background: #0B0A09; color: #ECE5D8">
+<div class="gs-wrap" style="padding-top: 160px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 56px">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #C9B48A; font-weight: 600">07 — The Hope</span>
+<h2 id="h-hope" class="gs-wipe" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(80px, 11vw, 168px); line-height: .9">Come to Christ</h2>
+</div>
+<div class="gs-split">
+<blockquote class="gs-reveal" style="margin: 0; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(30px, 3vw, 42px); line-height: 1.2">“Come unto me, all ye that labour and are heavy laden, and I will give you rest.”</span>
+<cite style="font-style: normal; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #C9B48A">Matthew 11:28</cite>
+</blockquote>
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 18px; line-height: 1.75; color: #D6CEC1">Jesus does not call sinners to make themselves worthy before coming to Him. He calls the weary and burdened to come to Him.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.75; color: #D6CEC1">Those who come to Christ in repentance and faith are forgiven, reconciled to God, and given eternal life. Our hope is found in Christ alone.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<button type="button" class="gs-toggle" data-toggle="hope" aria-expanded="false" style="align-self: flex-start; background: none; border: 0; padding: 0; min-height: 44px; display: inline-flex; gap: 10px; align-items: center; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #ECE5D8; cursor: pointer">Read the Scripture<svg class="gs-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<div data-verses="hope" hidden="">
+<div class="gs-verses gs-open" style="background: #24211E">
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Come unto me, all ye that labour and are heavy laden, and I will give you rest.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Matthew 11:28 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">All that the Father giveth me shall come to me; and him that cometh to me I will in no wise cast out.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">John 6:37 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">There is therefore now no condemnation to them which are in Christ Jesus.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">Romans 8:1 · KJV</figcaption></figure>
+
+<figure style="margin: 0; background: #0B0A09; padding: 28px; display: flex; flex-direction: column; gap: 14px"><blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4">Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.</blockquote><figcaption style="font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9A9184">2 Corinthians 5:17 · KJV</figcaption></figure>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section aria-label="Where to go from here" style="background: #C9B48A; color: #121110">
+<div class="gs-wrap" style="padding-top: 96px; padding-bottom: 96px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap">
+<div class="gs-reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 640px">
+<span style="font-size: 13px; letter-spacing: .24em; text-transform: uppercase; font-weight: 600">Where to go from here</span>
+<span style="font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: clamp(45.9px, 5.7vw, 78.7px); line-height: .92; font-weight: 700; letter-spacing: 0">Begin with John</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.7">Read it slowly. See what Jesus says about Himself, why He came, what He accomplished, and what He calls you to believe.</p>
+</div>
+<a href="#hope" style="text-decoration: none; background: #121110; color: #ECE5D8; padding: 20px 32px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; min-height: 44px; display: inline-flex; align-items: center; gap: 12px">Read the Gospel of John<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</div>
+</section>
+
+<footer style="background: #0B0A09; border-top: 1px solid #24211E">
+<div class="gs-wrap" style="padding-top: 40px; padding-bottom: 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: #9A9184">
+<span>Scripture: [translation credit line, e.g. LSB permission notice]</span>
+<a href="/burdenedhope" style="text-decoration: none">Back to BurdenedHope</a>
+</div>
+</footer>
+
+</div>
+
+
+
+
+<script src="/burdenedhope/js/gospel.js"></script>
+<script src="/burdenedhope/js/preview-bar.js"></script>
+</body></html>
