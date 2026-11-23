@@ -71,5 +71,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/burdenedhope/product",
+      "destination": "/burdenedhope/brand-tee",
+      "permanent": false
+    }
   ]
 }

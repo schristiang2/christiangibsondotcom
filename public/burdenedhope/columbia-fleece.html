@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="BurdenedHope website redesign concept by Christian Gibson.">
+<title>Embroidered Columbia Fleece — BurdenedHope</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&amp;family=Cormorant+Garamond:wght@300;400;500&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"><style>
+body{margin:0;background:#F6F2EA}
+a{color:inherit}a:hover{opacity:.8}
+.bh-pdp{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:48px;align-items:start}
+.bh-gal{grid-column:span 7;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.bh-buy{grid-column:span 5}
+@media (max-width:960px){.bh-pdp{grid-template-columns:minmax(0,1fr);gap:32px}.bh-gal,.bh-buy{grid-column:auto}}
+[id]{scroll-margin-top:130px}
+</style></head>
+<body>
+
+
+<div style="font-family: 'EB Garamond', Garamond, Georgia, serif; color: #121110; background: #F6F2EA; min-height: 100vh">
+
+<header style="background: #121110; color: #ECE5D8">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px 8px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px">
+<div style="justify-self: start; display: flex; align-items: center"><img src="/burdenedhope/images/mark-bone.svg" alt="" aria-hidden="true" style="height: 46px; width: auto; display: block"></div>
+<a href="/burdenedhope" aria-label="BurdenedHope home" style="display: flex; justify-content: center"><img src="/burdenedhope/images/logo-bone.png" alt="BurdenedHope" style="height: 44px; width: auto; display: block"></a>
+<div style="justify-self: end; display: flex; align-items: center"><button id="pdp-cart" aria-label="Cart, 0 items" style="background: none; border: 0; color: inherit; min-width: 44px; height: 44px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; justify-content: center; font: inherit; font-size: 13px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>0</button></div>
+</div>
+<nav aria-label="Primary" style="display: flex; justify-content: center; flex-wrap: wrap; column-gap: 36px; row-gap: 0; padding: 0 24px 6px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase">
+<a href="/burdenedhope/collection" aria-current="page" style="text-decoration: underline; text-underline-offset: 6px; min-height: 44px; display: inline-flex; align-items: center">Shop</a>
+<a href="/burdenedhope#story" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Our Story</a>
+<a href="/burdenedhope/gospel" style="text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">The Gospel</a>
+</nav>
+</header>
+
+<main style="max-width: 1360px; margin: 0 auto; padding: 48px 32px 96px">
+<div class="bh-pdp">
+<div class="bh-gal">
+<img id="pdp-main" src="/burdenedhope/images/fleece-black-front.jpg" alt="Embroidered Columbia fleece jacket in Black" style="grid-column: span 2; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #FFFFFF">
+<img src="/burdenedhope/images/fleece-collegiate-navy-front.jpg" alt="Columbia fleece jacket in Collegiate Navy" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #FFFFFF" loading="lazy">
+<img src="/burdenedhope/images/fleece-charcoal-heather-front.jpg" alt="Columbia fleece jacket in Charcoal Heather" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #FFFFFF" loading="lazy">
+</div>
+
+<div class="bh-buy" style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: #5C564D">Series 01 · Collection 01 — Burden</span>
+<h1 style="margin: 0; font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: 52.5px; line-height: .95; font-weight: 700; letter-spacing: 0">Columbia Fleece</h1>
+<span id="pdp-price" style="font-size: 22px">$89</span>
+</div>
+
+<fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+<legend style="font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px">Color — <span id="pdp-color" style="font-weight: 400; text-transform: none; letter-spacing: 0">Black</span></legend>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<button type="button" data-swatch="0" aria-label="Black" aria-pressed="true" style="width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: #1A1A1A; border: 1px solid #8C8478; box-shadow: 0 0 0 3px #F6F2EA, 0 0 0 5px #121110;"></button>
+<button type="button" data-swatch="1" aria-label="Collegiate Navy" aria-pressed="false" style="width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: #25324D; border: 1px solid #8C8478; box-shadow: none;"></button>
+<button type="button" data-swatch="2" aria-label="Charcoal Heather" aria-pressed="false" style="width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: #4B4B4F; border: 1px solid #8C8478; box-shadow: none;"></button>
+</div>
+</fieldset>
+<fieldset style="border: 0; margin: 0; padding: 0">
+<legend style="font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px">Size</legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px">
+<button type="button" data-size="S" aria-pressed="false" style="min-height: 48px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid #121110; background: transparent; color: #121110;">S</button>
+<button type="button" data-size="M" aria-pressed="false" style="min-height: 48px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid #121110; background: transparent; color: #121110;">M</button>
+<button type="button" data-size="L" aria-pressed="true" style="min-height: 48px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid #121110; background: #121110; color: #F6F2EA;">L</button>
+<button type="button" data-size="XL" aria-pressed="false" style="min-height: 48px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid #121110; background: transparent; color: #121110;">XL</button>
+<button type="button" data-size="2XL" aria-pressed="false" style="min-height: 48px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid #121110; background: transparent; color: #121110;">2XL</button>
+</div>
+<p style="margin: 10px 0 0; font-size: 13px; color: #5C564D">Athletic fit. Check the size guide before ordering.</p>
+</fieldset>
+<button type="button" id="pdp-add" style="min-height: 56px; background: #121110; color: #ECE5D8; border: 0; font: inherit; font-size: 14px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; cursor: pointer">Add to cart — $89</button>
+
+<div style="background: #121110; color: #ECE5D8; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: #C9B48A">The meaning · Matthew 11:28</span>
+<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; line-height: 1.3">Built for the colder days. Grounded in something greater.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #B5AC9F">Columbia’s soft fleece with embroidered BurdenedHope branding: a clean, understated reminder of where our hope is found, for training days and everyday wear.</p>
+</div>
+
+<dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 12px 24px; font-size: 14px; border-top: 1px solid #D6CDBE; padding-top: 24px">
+<dt style="font-weight: 600">Fabric</dt><dd style="margin: 0; color: #3B3731">100% polyester MTR filament fleece, 7.4 oz</dd>
+<dt style="font-weight: 600">Fit</dt><dd style="margin: 0; color: #3B3731">Athletic fit, full zip, unisex</dd>
+<dt style="font-weight: 600">Branding</dt><dd style="margin: 0; color: #3B3731">Embroidered BurdenedHope logo</dd>
+<dt style="font-weight: 600">Made to order</dt><dd style="margin: 0; color: #3B3731">Embroidered after you order. Production and shipping times are shown at checkout.</dd>
+</dl>
+</div>
+</div>
+</main>
+
+<section aria-label="Also in Burden" style="background: #121110; color: #ECE5D8">
+<div style="max-width: 1360px; margin: 0 auto; padding: 80px 32px; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'UnifrakturCook', 'Old English Text MT', serif; font-size: 40px; font-weight: 700; letter-spacing: 0">Also in Burden</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
+<a href="/burdenedhope/brand-tee" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px"><img src="/burdenedhope/images/tee-khaki-back.jpg" alt="The Brand Tee in Faded Khaki, back print" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block" loading="lazy"><span style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span style="font-weight: 600">The Brand Tee</span><span>From $42</span></span></a>
+<a href="/burdenedhope/not-my-will" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px"><img src="/burdenedhope/images/nmw-front.jpg" alt="Not My Will tee in Black, front print" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block" loading="lazy"><span style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span style="font-weight: 600">Not My Will — Luke 22:42</span><span>From $34</span></span></a>
+<a href="/burdenedhope/wall-flag" style="text-decoration: none; display: flex; flex-direction: column; gap: 12px"><img src="/burdenedhope/images/flag-1.jpg" alt="BurdenedHope wall flag, Matthew 11:28" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block" loading="lazy"><span style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span style="font-weight: 600">Wall Flag — Matthew 11:28</span><span>$35</span></span></a>
+</div>
+</div>
+</section>
+
+<footer style="background: #121110; color: #ECE5D8; border-top: 1px solid #2A2724; font-family: 'EB Garamond', Garamond, Georgia, serif">
+<div style="max-width: 1360px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; align-items: center; gap: 44px; text-align: center">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+<a href="/burdenedhope" aria-label="BurdenedHope home" style="display: block"><img src="/burdenedhope/images/logo-bone.png" alt="BurdenedHope" style="height: 48px; width: auto; display: block"></a>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B5AC9F">Burdened by the world. Hope found in Christ.</p>
+</div>
+<nav aria-label="Footer" style="display: flex; justify-content: center; gap: 24px 72px; flex-wrap: wrap; font-size: 15px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 160px"><span style="font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: #9A9184">Shop</span><a href="/burdenedhope/collection" style="text-decoration: none">Collection 01 — Burden</a><a href="/burdenedhope/brand-tee" style="text-decoration: none">The Brand Tee</a><a href="/burdenedhope/not-my-will" style="text-decoration: none">Not My Will</a><a href="/burdenedhope/columbia-fleece" style="text-decoration: none">Columbia Fleece</a><a href="/burdenedhope/wall-flag" style="text-decoration: none">Wall Flag</a></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 160px"><span style="font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: #9A9184">Faith</span><a href="/burdenedhope#story" style="text-decoration: none">Our Story</a><a href="/burdenedhope/gospel" style="text-decoration: none">The Gospel</a></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 160px"><span style="font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: #9A9184">Help</span><a href="#" style="text-decoration: none">Contact</a><a href="#" style="text-decoration: none">Shipping</a><a href="#" style="text-decoration: none">Returns</a></div>
+</nav>
+<div style="align-self: stretch; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; color: #9A9184; border-top: 1px solid #2A2724; padding-top: 24px">
+<span>© 2026 BurdenedHope</span>
+<span>Privacy · Terms · Refunds</span>
+<span style="max-width: 560px; margin-top: 6px; font-size: 12px; line-height: 1.5">Scripture quotations taken from the (LSB®) Legacy Standard Bible®, Copyright © 2021 by The Lockman Foundation. Used by permission. All rights reserved.</span>
+</div>
+</div>
+</footer>
+
+</div>
+<script type="application/json" id="pdp-data">{"colors": [["Black", "/burdenedhope/images/fleece-black-front.jpg"], ["Collegiate Navy", "/burdenedhope/images/fleece-collegiate-navy-front.jpg"], ["Charcoal Heather", "/burdenedhope/images/fleece-charcoal-heather-front.jpg"]], "altFmt": "Embroidered Columbia fleece jacket in {c}", "sizes": ["S", "M", "L", "XL", "2XL"], "size": "L", "base": 89, "up": {}}</script>
+<script src="/burdenedhope/js/product.js"></script>
+<script src="/burdenedhope/js/preview-bar.js"></script>
+</body></html>

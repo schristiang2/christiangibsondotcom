@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 130" role="img" aria-label="BurdenedHope mark">
+  <path fill="#ECE5D8" fill-rule="evenodd" d="M52 38c-19.3 0-34 15.7-34 36s14.7 36 34 36 34-15.7 34-36-14.7-36-34-36zm0 3.2c12.9 0 21 14.7 21 32.8s-8.1 32.8-21 32.8S31 92.1 31 74s8.1-32.8 21-32.8z"/>
+  <g transform="rotate(30 52 74)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48.3 8.5l8.6-.4.5 116.6-9.2.6z" fill="#A9895C" stroke="#6E5434" stroke-width=".8"/>
+    <path d="M50.4 12c.7 20-.6 40 .4 60s-.4 30 .2 48M54.6 11c-.5 18 .8 36-.2 54s.6 36 .1 56" fill="none" stroke="#7B5F3A" stroke-width=".75" opacity=".8"/>
+    <path d="M28 31.6l48.4-1 .4 7.6-48.7.8z" fill="#B39466" stroke="#6E5434" stroke-width=".8"/>
+    <path d="M31 33.6c13 .3 27-.5 43 .1M30.5 36.3c16-.4 28 .4 44-.1" fill="none" stroke="#7B5F3A" stroke-width=".75" opacity=".8"/>
+  </g>
+</svg>

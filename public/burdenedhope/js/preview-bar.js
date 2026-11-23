@@ -1,7 +1,7 @@
 /* Concept preview bar: remove this file (and its <script> tag) when the site goes live. */
 (function () {
   var pages = [
-    ['/burdenedhope', 'Home'], ['/burdenedhope/collection', 'Collection'], ['/burdenedhope/product', 'Product'],
+    ['/burdenedhope', 'Home'], ['/burdenedhope/collection', 'Collection'], ['/burdenedhope/brand-tee', 'Product'],
     ['/burdenedhope/gospel', 'The Gospel'], ['/burdenedhope/prelaunch', 'Pre-launch']
   ];
   var here = location.pathname.replace(/\/(index)?(\.html)?$/, '').replace(/\.html$/, '') || '/burdenedhope';
