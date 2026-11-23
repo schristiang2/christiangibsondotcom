@@ -21,7 +21,7 @@
     '.bh-preview__links{display:flex;gap:14px;overflow-x:auto;white-space:nowrap}' +
     '.bh-preview a{color:#ECE5D8;text-decoration:none;padding:10px 0}.bh-preview a[aria-current]{text-decoration:underline;text-underline-offset:5px}' +
     '.bh-preview button{background:none;border:0;color:#B5AC9F;font-size:20px;width:36px;height:36px;cursor:pointer}' +
-    '@media (max-width:760px){.bh-preview__by{display:none}.bh-preview{padding-left:14px}}';
+    '@media (max-width:760px){.bh-preview{display:none}}';
   document.head.appendChild(css);
   document.body.appendChild(bar);
 })();
